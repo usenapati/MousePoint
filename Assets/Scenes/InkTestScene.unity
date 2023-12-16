@@ -372,8 +372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35451bb1625486e4a8f65bb345b98eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJsonAsset: {fileID: 0}
-  textField: {fileID: 0}
+  inkJsonAsset: {fileID: 4900000, guid: 1187ee515671a6942b15a5ee34dd6970, type: 3}
+  textField: {fileID: 2136124329}
 --- !u!4 &1203661332
 Transform:
   m_ObjectHideFlags: 0
@@ -656,7 +656,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1751290954}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1751290956}
+        m_TargetAssemblyTypeName: Dialogue.NextButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1751290954
 MonoBehaviour:
   m_ObjectHideFlags: 0

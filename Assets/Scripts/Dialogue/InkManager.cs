@@ -1,7 +1,6 @@
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Dialogue
 {

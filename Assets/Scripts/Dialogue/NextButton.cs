@@ -15,7 +15,7 @@ namespace Dialogue
                 Debug.LogError("Ink Manager was not found!");
             }
         }
-
+        
         public void OnClick()
         {
             _inkManager?.DisplayNextLine();
