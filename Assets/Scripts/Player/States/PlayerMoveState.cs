@@ -1,5 +1,6 @@
 using Core;
 using Core.State_Machine;
+using Player.States.Attacks;
 using UnityEngine;
 
 namespace Player.States
@@ -10,6 +11,12 @@ namespace Player.States
         [SerializeField, Range(250f, 500f)] private float _speed = 300f;
 
         private Vector3 _playerInput;
+        
+        public override void Enter(PlayerStateMachine parent)
+        {
+            base.Enter(parent);
+            parent.Animations.PlayMove();
+        }
 
         public override void Tick(float deltaTime)
         {
@@ -23,6 +30,12 @@ namespace Player.States
 
         public override void ChangeState()
         {
+            if (runner.MeleeAttackPressed)
+            {
+                runner.SetState(typeof(PlayerAttackState));
+                return;
+            }
+            
             if (runner.RollPressed)
             {
                 runner.SetState(typeof(PlayerRollState));

@@ -18,6 +18,7 @@ namespace Player.States
         public override void Enter(PlayerStateMachine parent)
         {
             base.Enter(parent);
+            parent.Animations.PlayRoll();
             
             // grab the direction were the player is aiming in a 3D plane
             var playerInput = new Vector3(parent.Movement.normalized.x, 0, parent.Movement.normalized.y);

@@ -79,6 +79,8 @@ namespace Core.State_Machine
     public enum AnimationTriggerType
     {
         EnemyDamaged,
-        PlayFootstepSound
+        PlayFootstepSound,
+        HitBox,
+        FinishAttack,
     }
 }

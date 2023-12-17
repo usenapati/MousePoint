@@ -9,6 +9,7 @@ namespace Player.Input
         public event UnityAction<Vector2> MovementEvent = delegate { };
         public event UnityAction RollEvent = delegate {  };
         public event UnityAction RollCancelledEvent = delegate { };
+        public event UnityAction<bool> MeleeAttackEvent = delegate { };
 
         private GameControls _playerActions;
 
@@ -57,6 +58,11 @@ namespace Player.Input
             {
                 RollCancelledEvent?.Invoke();
             }
+        }
+
+        public void OnMelee(InputAction.CallbackContext context)
+        {
+            MeleeAttackEvent?.Invoke(context.performed);
         }
     }
 }
