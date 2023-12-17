@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Testplayermovement : MonoBehaviour
 {
     [SerializeField] private float speed; // TODO Handle with PlayerStats Scriptable Object
     [SerializeField] private float groundDist;
