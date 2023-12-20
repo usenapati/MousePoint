@@ -1,5 +1,6 @@
 using Extensions;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player.States.Attacks
 {
@@ -10,16 +11,23 @@ namespace Player.States.Attacks
         public string attackName;
 
         [Tooltip("How big is this attack")] 
-        public Bounds AttackBounds;
+        public Bounds attackBounds;
 
         [Tooltip("The offset from the player")]
-        public Vector3 BoundsOffset;
+        public Vector3 boundsOffset;
 
         [Tooltip("The damage to perform on the target")]
-        public float Damage;
+        public float damage;
 
         [Tooltip("Which Layer is this target")]
-        public LayerMask TargetMask;
+        public LayerMask targetMask;
+        
+        [Tooltip("Which attack index should we transition to")]
+        [HideInInspector]
+        public int nextComboIndex;
+
+        [Tooltip("The time to start checking for next combo time")]
+        public float comboAttackTime;
 
         /// <summary>
         /// Calculates the bounds from the player
@@ -29,9 +37,9 @@ namespace Player.States.Attacks
         /// <returns></returns>
         private Bounds GetBoundsRelativeToPlayer(Transform player, bool isFacingRight)
         {
-            var bounds = AttackBounds;
+            var bounds = attackBounds;
             var xValue = isFacingRight ? 1 : -1;
-            var offset = BoundsOffset;
+            var offset = boundsOffset;
             offset.x *= xValue;
             bounds.center = player.position + offset;
 
@@ -50,7 +58,7 @@ namespace Player.States.Attacks
             // we call our extension method
             bounds.DrawBounds(1);
 
-            return Physics.OverlapBox(bounds.center, bounds.extents / 2f, Quaternion.identity, TargetMask);
+            return Physics.OverlapBox(bounds.center, bounds.extents / 2f, Quaternion.identity, targetMask);
         }
     }
 }

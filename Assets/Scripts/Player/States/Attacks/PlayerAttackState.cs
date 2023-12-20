@@ -1,4 +1,6 @@
 using Core.State_Machine;
+using Health;
+using Extensions;
 using UnityEngine;
 
 namespace Player.States.Attacks
@@ -6,7 +8,11 @@ namespace Player.States.Attacks
     [CreateAssetMenu(menuName = "States/Player/Attack")]
     public class PlayerAttackState : State<PlayerStateMachine>
     {
-        [SerializeField] private AttackSO _attackData;
+        [SerializeField] private AttackSO[] _attackDatas;
+        
+        private int _currentAttackIndex;
+        private AttackSO _attackData;
+        private float _previousFrameTime;
 
         public override void Enter(PlayerStateMachine parent)
         {
@@ -51,6 +57,10 @@ namespace Player.States.Attacks
             {
                 Debug.Log($"Colliding with {collider.gameObject.name}");
                 // Damage Object Here
+                if (collider.TryGetComponent(out IDamageable damageable))
+                {
+                    damageable.Damage(_attackData.damage);
+                }
             }
         }
 

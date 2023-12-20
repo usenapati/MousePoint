@@ -62,7 +62,14 @@ namespace Player.Input
 
         public void OnMelee(InputAction.CallbackContext context)
         {
-            MeleeAttackEvent?.Invoke(context.performed);
+            if (context.performed)
+            {
+                MeleeAttackEvent?.Invoke(true);
+            }
+            else if (context.canceled)
+            {
+                MeleeAttackEvent?.Invoke(false);
+            }
         }
     }
 }
