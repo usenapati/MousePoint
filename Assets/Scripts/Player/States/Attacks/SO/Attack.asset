@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Attack
   m_EditorClassIdentifier: 
   attackName: AttackSwing
-  AttackBounds:
+  attackBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.25, y: 0.35, z: 0.3}
-  BoundsOffset: {x: 1, y: 1, z: 0}
-  Damage: 1
-  TargetMask:
+  boundsOffset: {x: 1, y: 1, z: 0}
+  damage: 1
+  targetMask:
     serializedVersion: 2
     m_Bits: 64
+  nextComboIndex: 0
+  comboAttackTime: 0
