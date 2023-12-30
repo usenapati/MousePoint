@@ -15,12 +15,12 @@ namespace Player.States
         public override void Enter(PlayerStateMachine parent)
         {
             base.Enter(parent);
-            parent.Animations.PlayMove();
+            parent.animations.PlayMove();
         }
 
         public override void Tick(float deltaTime)
         {
-            _playerInput = new Vector3(runner.Movement.x, 0, runner.Movement.y).normalized;
+            _playerInput = new Vector3(runner.movement.x, 0, runner.movement.y).normalized;
         }
 
         public override void FixedTick(float fixedDeltaTime)
@@ -30,13 +30,13 @@ namespace Player.States
 
         public override void ChangeState()
         {
-            if (runner.MeleeAttackPressed)
+            if (runner.meleeAttackPressed)
             {
                 runner.SetState(typeof(PlayerAttackState));
                 return;
             }
             
-            if (runner.RollPressed)
+            if (runner.rollPressed)
             {
                 runner.SetState(typeof(PlayerRollState));
                 return;

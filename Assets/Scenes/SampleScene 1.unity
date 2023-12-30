@@ -742,6 +742,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3338105976943368988, guid: 6bfc4e23c97e8114c9c7b22e73c2defb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3338105976943368990, guid: 6bfc4e23c97e8114c9c7b22e73c2defb,
         type: 3}
       propertyPath: m_RootOrder
@@ -750,7 +755,7 @@ PrefabInstance:
     - target: {fileID: 3338105976943368990, guid: 6bfc4e23c97e8114c9c7b22e73c2defb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.36
+      value: 5.587
       objectReference: {fileID: 0}
     - target: {fileID: 3338105976943368990, guid: 6bfc4e23c97e8114c9c7b22e73c2defb,
         type: 3}
@@ -797,6 +802,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3338105977578623037, guid: 6bfc4e23c97e8114c9c7b22e73c2defb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338105977578623038, guid: 6bfc4e23c97e8114c9c7b22e73c2defb,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338105977578623038, guid: 6bfc4e23c97e8114c9c7b22e73c2defb,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338105977578623038, guid: 6bfc4e23c97e8114c9c7b22e73c2defb,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5097893739992248438, guid: 6bfc4e23c97e8114c9c7b22e73c2defb,
         type: 3}
       propertyPath: m_Value
@@ -821,36 +846,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4371585681888602329, guid: 9eafa4fb520a3c542ada8827b7721705,
-        type: 3}
-      propertyPath: CameraDistance
-      value: 3.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 4371585681888602329, guid: 9eafa4fb520a3c542ada8827b7721705,
-        type: 3}
-      propertyPath: VerticalArmLength
-      value: 1.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 4371585682344827230, guid: 9eafa4fb520a3c542ada8827b7721705,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.254
-      objectReference: {fileID: 0}
-    - target: {fileID: 4371585682344827230, guid: 9eafa4fb520a3c542ada8827b7721705,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.76799995
-      objectReference: {fileID: 0}
-    - target: {fileID: 4371585682344827230, guid: 9eafa4fb520a3c542ada8827b7721705,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.98727465
-      objectReference: {fileID: 0}
-    - target: {fileID: 4371585682344827230, guid: 9eafa4fb520a3c542ada8827b7721705,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.15902449
-      objectReference: {fileID: 0}
     - target: {fileID: 4371585682891687920, guid: 9eafa4fb520a3c542ada8827b7721705,
         type: 3}
       propertyPath: m_Name

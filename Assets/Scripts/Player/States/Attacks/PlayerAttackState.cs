@@ -39,16 +39,16 @@ namespace Player.States.Attacks
             // we need to gather which is the current attack we want
             _attackData = attackDatas[_currentAttackIndex];
 
-            parent.Animations.PlayAttack(_attackData.attackName);
+            parent.animations.PlayAttack(_attackData.attackName);
         }
 
         public override void Tick(float deltaTime)
         {
-            var normalizedTime = runner.Animations.GetNormalizedTime();
+            var normalizedTime = runner.animations.GetNormalizedTime();
 
             if (normalizedTime >= _previousFrameTime && normalizedTime < 1f)
             {
-                if (runner.MeleeAttackPressed)
+                if (runner.meleeAttackPressed)
                 {
                     TryComboAttack(normalizedTime);
                 }
@@ -68,7 +68,7 @@ namespace Player.States.Attacks
 
             if (triggerType != AnimationTriggerType.HitBox) return;
 
-            var colliders = _attackData.Hit(runner.transform, runner.IsFacingRight);
+            var colliders = _attackData.Hit(runner.transform, runner.isFacingRight);
 
             PerformDamage(colliders);
         }
@@ -110,7 +110,7 @@ namespace Player.States.Attacks
 
         public override void ChangeState()
         {
-            if (runner.Movement.sqrMagnitude != 0)
+            if (runner.movement.sqrMagnitude != 0)
             {
                 runner.SetState(typeof(PlayerMoveState));
             }
