@@ -1,5 +1,6 @@
 using Core.State_Machine;
 using Player.Input;
+using Player.States.Attacks;
 using UnityEngine;
 
 namespace Player
@@ -25,11 +26,16 @@ namespace Player
 
         [SerializeField] private Animator animator;
         public PlayerAnimations animations { get; private set; }        
+        
+        [SerializeField] private Transform weaponsHand;
+        
+        public PlayerWeapons weapons { get; private set; }
 
         protected override void Awake()
         {
             base.Awake();
             animations = new PlayerAnimations(animator);
+            weapons = new PlayerWeapons(weaponsHand);
         }  
         
         private void OnEnable()

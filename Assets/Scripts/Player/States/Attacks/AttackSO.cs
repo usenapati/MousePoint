@@ -1,6 +1,6 @@
 using Extensions;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Weapons;
 
 namespace Player.States.Attacks
 {
@@ -28,6 +28,9 @@ namespace Player.States.Attacks
 
         [Tooltip("The time to start checking for next combo time")]
         public float comboAttackTime;
+        
+        [Tooltip("The current weapon we are holding")]
+        public WeaponSO weapon;
 
         /// <summary>
         /// Calculates the bounds from the player
@@ -55,9 +58,18 @@ namespace Player.States.Attacks
         public Collider[] Hit(Transform origin, bool isFacingRight)
         {
             var bounds = GetBoundsRelativeToPlayer(origin, isFacingRight);
+						
+            // we need to check if we have a weapon and if so we need to add the bounds
+            // of the weapon into the attack itself
+            if (weapon != null)
+            {
+                bounds.Encapsulate(weapon.GetBoundsRelativeToPlayer(origin));
+            }
+            
             // we call our extension method
             bounds.DrawBounds(1);
 
+            // ReSharper disable once Unity.PreferNonAllocApi
             return Physics.OverlapBox(bounds.center, bounds.extents / 2f, Quaternion.identity, targetMask);
         }
     }

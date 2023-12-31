@@ -13,6 +13,8 @@ namespace Player.States.Attacks
         private int _currentAttackIndex;
         private AttackSO _attackData;
         private float _previousFrameTime;
+        
+        private float _weaponDamage;
 
         private void OnValidate()
         {
@@ -40,6 +42,8 @@ namespace Player.States.Attacks
             _attackData = attackDatas[_currentAttackIndex];
 
             parent.animations.PlayAttack(_attackData.attackName);
+            
+            _weaponDamage = runner.weapons.weaponDamage;
         }
 
         public override void Tick(float deltaTime)
@@ -93,13 +97,11 @@ namespace Player.States.Attacks
         {
             if (colliders.Length <= 0) return;
 
-            foreach (var collider in colliders)
+            foreach (var col in colliders)
             {
-                Debug.Log($"Colliding with {collider.gameObject.name}");
-                // Damage Object Here
-                if (collider.TryGetComponent(out IDamageable damageable))
+                if (col.TryGetComponent(out IDamageable damageable))
                 {
-                    damageable.Damage(_attackData.damage);
+                    damageable.Damage(_attackData.damage + _weaponDamage);
                 }
             }
         }
