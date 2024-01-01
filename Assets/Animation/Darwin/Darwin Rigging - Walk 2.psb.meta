@@ -1284,8 +1284,8 @@ ScriptedImporter:
     spritePosition: {x: 534, y: 250}
   - name: Foot Right Color Copy 2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.49999964, y: 0.41471714}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1690,8 +1690,8 @@ ScriptedImporter:
     spritePosition: {x: 454, y: 18}
   - name: Foot Right Color Copy 3
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.4999998, y: 0.40256235}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
