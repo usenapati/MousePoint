@@ -1,17 +1,16 @@
 using Core.State_Machine;
 using UnityEngine;
 
-namespace Enemy.States
+namespace Enemy.States.Attacks
 {
-    [CreateAssetMenu(menuName = "States/Enemy/Patrol")]
-    public class EnemyPatrolState : State<EnemyStateMachine>
+    [CreateAssetMenu(menuName = "States/Enemy/Attack")]
+    public class EnemyAttackState : State<EnemyStateMachine>
     {
-        // Enemy Speed
-        // Enemy Detection
+        // Attack Damage
+        // Attack Cooldown
         
         public override void Tick(float deltaTime)
         {
-            // Move to a random point in level (Should be ground) and walk to it
             throw new System.NotImplementedException();
         }
 
@@ -22,7 +21,7 @@ namespace Enemy.States
 
         public override void ChangeState()
         {
-            // Check if player is in radius and in sight, if so chase them
+            // Back to Chase after attack is finished
         }
     }
 }
