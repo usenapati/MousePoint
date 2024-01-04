@@ -11,5 +11,5 @@ Nezumi: Well, with spunk like that you must be Darwin. I was friends with your g
 
 
  === Dovetail ===
-Nezumi:Now  listen up young one. If you’d like to get back to your parents, I’m afraid there are a few obstacles stopping you from this journey. Take this wooden sword and go practice Fighting on those dummies over there. I will explain more to you soon enough… #speaker: Nezumi
+Nezumi:Now  listen up young one. If you’d like to get back to your parents, I’m afraid there are a few obstacles stopping you from this journey. Take this wooden sword and go practice fighting on those dummies over there. I will explain more to you soon enough… #speaker: Nezumi
 -> END

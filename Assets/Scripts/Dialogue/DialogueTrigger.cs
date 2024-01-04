@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Dialogue
@@ -46,7 +45,6 @@ namespace Dialogue
             if (other.gameObject.CompareTag("Player")) // Corrected line
             {
                 visualCue.SetActive(false);
-                hasStartedDialogue = false;
             }
         }
     }
