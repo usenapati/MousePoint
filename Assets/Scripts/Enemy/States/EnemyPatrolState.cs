@@ -12,7 +12,7 @@ namespace Enemy.States
         public override void Tick(float deltaTime)
         {
             // Move to a random point in level (Should be ground) and walk to it
-            throw new System.NotImplementedException();
+            
         }
 
         public override void FixedTick(float fixedDeltaTime)
