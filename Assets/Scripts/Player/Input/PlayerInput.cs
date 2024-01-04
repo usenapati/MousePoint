@@ -11,6 +11,8 @@ namespace Player.Input
         public event UnityAction RollCancelledEvent = delegate { };
         public event UnityAction<bool> MeleeAttackEvent = delegate { };
 
+        public event UnityAction<bool> InteractEvent = delegate { };
+
         private GameControls _playerActions;
 
         private void OnEnable()
@@ -69,6 +71,18 @@ namespace Player.Input
             else if (context.canceled)
             {
                 MeleeAttackEvent?.Invoke(false);
+            }
+        }
+
+        public void OnInteract(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                InteractEvent?.Invoke(true);
+            }
+            else if (context.canceled)
+            {
+                InteractEvent?.Invoke(false);
             }
         }
     }

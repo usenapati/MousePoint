@@ -3884,13 +3884,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 762010578}
+  m_Father: {fileID: 1118947470}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.28137037}
   m_AnchorMax: {x: 0.162, y: 0.55770373}
-  m_AnchoredPosition: {x: 0.77001953, y: -1.5168457}
-  m_SizeDelta: {x: -0.46850586, y: 3.119934}
+  m_AnchoredPosition: {x: 0.77001953, y: 325.21307}
+  m_SizeDelta: {x: -0.46850586, y: 218.3247}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &368293029
 MonoBehaviour:
@@ -3993,7 +3993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: cd4046b2d1b8741328e9d906e12514ea,
+  m_Actions: {fileID: -944628639613478452, guid: ffdcdb6176c3f7c438dd66dc5c3f3fb1,
     type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
@@ -5945,7 +5945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &662336477
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5960,7 +5960,7 @@ RectTransform:
   m_Children:
   - {fileID: 365348582}
   m_Father: {fileID: 1118947470}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7251043, y: 0}
   m_AnchorMax: {x: 0.9785835, y: 0.30047646}
@@ -6673,8 +6673,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 368293028}
-  - {fileID: 1642323921}
   - {fileID: 1118947470}
   m_Father: {fileID: 0}
   m_RootOrder: 17
@@ -7717,7 +7715,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1118947470}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.012520821, y: 0.30047646}
   m_AnchorMax: {x: 0.9785835, y: 0.8987988}
@@ -9715,10 +9713,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 368293028}
+  - {fileID: 1642323921}
   - {fileID: 905134295}
   - {fileID: 662336477}
   m_Father: {fileID: 762010578}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -10453,7 +10453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 1094777834}
-  inkJSON: {fileID: 4900000, guid: a55ca51533ede44ea9ba4a7454d90b65, type: 3}
+  inkJSON: {fileID: 4900000, guid: 7c2c2cd3316a18845909ae8f9f62a74a, type: 3}
 --- !u!1 &1162663969
 GameObject:
   m_ObjectHideFlags: 0
@@ -13695,13 +13695,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 762010578}
+  m_Father: {fileID: 1118947470}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.83733326, y: 0.28137037}
   m_AnchorMax: {x: 1, y: 0.55770373}
-  m_AnchoredPosition: {x: 1.2299805, y: -1.1734009}
-  m_SizeDelta: {x: -2.4685059, y: 3.2200012}
+  m_AnchoredPosition: {x: 1.2299805, y: 325.55652}
+  m_SizeDelta: {x: -2.4685059, y: 218.42477}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1642323922
 MonoBehaviour:
@@ -15979,8 +15979,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596c2735f1b0d4178a49bcb452d02e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
+  dialoguePanel: {fileID: 1118947469}
+  dialogueText: {fileID: 905134296}
+  playerInput: {fileID: 1916660350}
+--- !u!114 &1916660350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6313490440685333429, guid: 9eafa4fb520a3c542ada8827b7721705,
+    type: 3}
+  m_PrefabInstance: {fileID: 1102467485}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e330ec1b24a5cdc4b87e178f7fff4dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1926824283
 GameObject:
   m_ObjectHideFlags: 0
