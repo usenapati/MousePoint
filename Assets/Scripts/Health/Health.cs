@@ -8,11 +8,12 @@ namespace Health
     {
         [SerializeField] private float _maxHealth = 100;
         [SerializeField] private float _inmuneTime = 1f;
-    
+        //Delete After Alpha
+        [SerializeField] AudioSource wood;
         public event Action<float, float> OnTakeDamage;
         public event Action OnDie;
         public event Action<float> OnSetupHealth;
-    
+
         private bool _isDead => _health == 0;
         private float _health;
         private WaitForSeconds _waitingTime;
@@ -52,7 +53,8 @@ namespace Health
             OnTakeDamage?.Invoke(amount, _health);
     
             StartCoroutine(Immune());
-    
+            //Delete After Alpha
+               wood.Play();
             if (_isDead)
             {
                 Die();
