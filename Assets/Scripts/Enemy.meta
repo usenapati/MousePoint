@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Enemy.meta
 guid: 49ccf4f3d4b56b74395c85fbeabbbcb0
 folderAsset: yes
+========
+guid: b0f1e5d3654934076a67ce05b1b6afbd
+>>>>>>>> dev:Assets/Scenes/DialogueTEST-Kristi.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

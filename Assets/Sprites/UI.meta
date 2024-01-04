@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Sprites/UI.meta
 guid: 828738a2a65cadd4199079b2e3b8a188
 folderAsset: yes
+========
+guid: dacec6c76ff30a044a2a9e66e0a2c78c
+>>>>>>>> dev:Assets/Scenes/UIandBuildout.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
