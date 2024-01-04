@@ -1,4 +1,3 @@
-using Core;
 using Core.State_Machine;
 using Player.States.Attacks;
 using UnityEngine;
@@ -8,7 +7,7 @@ namespace Player.States
     [CreateAssetMenu(menuName = "States/Player/Move")]
     public class PlayerMoveState : State<PlayerStateMachine>
     {
-        [SerializeField, Range(250f, 500f)] private float _speed = 300f;
+        [SerializeField, Range(250f, 500f)] private float speed = 300f;
 
         private Vector3 _playerInput;
         
@@ -25,7 +24,7 @@ namespace Player.States
 
         public override void FixedTick(float fixedDeltaTime)
         {
-            runner.Move(_playerInput * (_speed * fixedDeltaTime));
+            runner.Move(_playerInput * (speed * fixedDeltaTime));
         }
 
         public override void ChangeState()

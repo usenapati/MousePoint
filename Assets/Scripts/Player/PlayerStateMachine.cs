@@ -7,6 +7,7 @@ namespace Player
 {
     public class PlayerStateMachine : StateMachine<PlayerStateMachine>
     {
+        [Header("Player Components")]
         [SerializeField] private PlayerInput playerInput;
         // this is the Transform we want to rotate on the Y axis when changing directions
         [SerializeField] private Transform spriteTransform;
@@ -14,6 +15,8 @@ namespace Player
 
         // this Vector2 can be used on each State to determine any change
         public Vector2 movement { get; private set; }
+        
+        // Player Events
         public bool rollPressed => _rollPressed;
         private bool _rollPressed;
 
@@ -24,6 +27,7 @@ namespace Player
         public bool isFacingRight => _isFacingRight;
         private bool _isFacingRight = false;
 
+        [Header("Animation")]
         [SerializeField] private Animator animator;
         public PlayerAnimations animations { get; private set; }        
         
