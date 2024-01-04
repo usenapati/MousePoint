@@ -8,7 +8,14 @@ namespace Enemy.States
     {
         // Enemy Speed
         // Enemy Detection
-        
+        [SerializeField] private float patrolRadius = 15f;
+
+        public override void Enter(EnemyStateMachine parent)
+        {
+            base.Enter(parent);
+            runner.PatrolRadius(patrolRadius);
+        }
+
         public override void Tick(float deltaTime)
         {
             // Move to a random point in level (Should be ground) and walk to it
@@ -17,7 +24,7 @@ namespace Enemy.States
 
         public override void FixedTick(float fixedDeltaTime)
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public override void ChangeState()

@@ -13,7 +13,13 @@ namespace Enemy
         
         // Player Reference
         private PlayerStateMachine playerStateMachine;
+        
+        // Enemy Stats
+        public bool canAttack => _canAttack;
+        private bool _canAttack;
 
+        
+        
         protected override void Start()
         {
             base.Start();
@@ -22,7 +28,29 @@ namespace Enemy
 
         // Methods for Agent
         // Pick Random Coordinate in Radius - Patrol
-        // Follow Player - Chase
+        public void PatrolRadius(float patrolRadius)
+        {
+            // Generate position in radius
+            agent.destination = GeneratePositionInRadius(patrolRadius);
+            // If enemy doesn't reach location in given time, generate a new position
+        }
         
+        // Follow Player - Chase
+        public void FollowPlayer()
+        {
+            agent.destination = playerStateMachine.gameObject.transform.position;
+        }
+
+        public bool IsEnemyInRadius(float detectionRadius)
+        {
+            return false;
+        }
+
+        private Vector3 GeneratePositionInRadius(float radius)
+        {
+            return transform.position;
+        }
+        
+        // Has Completed Attack
     }
 }
