@@ -15,12 +15,12 @@ MonoBehaviour:
   attackName: Melee
   attackBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.25, y: 0.35, z: 0.3}
-  boundsOffset: {x: 0.65, y: 0, z: 0}
+    m_Extent: {x: 0.75, y: 0.5, z: 1.5}
+  boundsOffset: {x: 0.8, y: 0, z: 0}
   damage: 25
   targetMask:
     serializedVersion: 2
     m_Bits: 64
   nextComboIndex: 0
   comboAttackTime: 0
-  weapon: {fileID: 0}
+  weapon: {fileID: 11400000, guid: e2c2b53629ae2694e9aebb28f787f6d5, type: 2}

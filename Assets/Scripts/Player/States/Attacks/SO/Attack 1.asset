@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9833e07216a5d91418dd3b3ced008a4b, type: 3}
   m_Name: Attack 1
   m_EditorClassIdentifier: 
-  attackName: 
+  attackName: Melee
   attackBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  boundsOffset: {x: 0, y: 0, z: 0}
-  damage: 0
+    m_Extent: {x: 0.75, y: 0.5, z: 1.5}
+  boundsOffset: {x: 0.8, y: 0, z: 0}
+  damage: 34
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   nextComboIndex: 0
   comboAttackTime: 0
+  weapon: {fileID: 11400000, guid: e2c2b53629ae2694e9aebb28f787f6d5, type: 2}
