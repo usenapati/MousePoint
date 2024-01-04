@@ -21,5 +21,5 @@ Nezumi: Well, with spunk like that you must be Darwin. I was friends with your g
 
 
  === Dovetail ===
-Nezumi:Now listen up young one If you’d like to get back to your parents, I’m afraid I’ll need your assistance with something. When you are ready, go and seek out Jacque Fromage. You should find him pacing where Totten Town meets the Unbridled Wood. #speaker: Nezumi
+Nezumi:Now listen up young one If you’d like to get back to your parents, I’m afraid I’ll need your assistance with something. When you are ready, go and seek out the unhinged baby possum souls that plague the town. #speaker: Nezumi
 -> END
