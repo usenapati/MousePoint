@@ -1,34 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+namespace Dialogue
 {
-    [Header("VisualCue")]
-    [SerializeField] private GameObject visualCue;
-
-    [Header("Ink JSON")]
-    [SerializeField] private TextAsset inkJSON;
-
-    private void Start()
+    public class DialogueTrigger : MonoBehaviour
     {
-        visualCue.SetActive(false);
-    }
+        [Header("VisualCue")]
+        [SerializeField] private GameObject visualCue;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Collider entered");
-        if (other.gameObject.tag == "Player") // Corrected line
-        {
-            visualCue.SetActive(true);
-        }
-    }
+        [Header("Ink JSON")]
+        [SerializeField] private TextAsset inkJSON;
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player") // Corrected line
+        private bool hasStartedDialogue = false;
+
+        private void Start()
         {
             visualCue.SetActive(false);
+        }
+        
+        
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.gameObject.CompareTag("Player")) // Corrected line
+            {
+                if (!hasStartedDialogue && DialogueManager.GetInstance().interactPressed)
+                {
+                    DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                    hasStartedDialogue = true;
+                }
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            
+            if (!hasStartedDialogue && other.gameObject.CompareTag("Player")) // Corrected line
+            {
+                visualCue.SetActive(true);
+                
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.CompareTag("Player")) // Corrected line
+            {
+                visualCue.SetActive(false);
+            }
         }
     }
 }

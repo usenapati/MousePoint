@@ -1,98 +1,120 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
 using Ink.Runtime;
+using Player.Input;
+using TMPro;
+using UnityEngine;
 
-public class DialogueManager : MonoBehaviour
+namespace Dialogue
 {
-    [Header("Dialogue UI")]
-
-    [SerializeField] private GameObject dialoguePanel;
-
-    [SerializeField] private TextMeshProUGUI dialogueText;
-
-    private Story currentStory;
-
-    private bool dialogueIsPlaying;
-
-    private static DialogueManager instance;
-
-    private void Awake()
+    public class DialogueManager : MonoBehaviour
     {
-        if (instance != null)
+        [Header("Dialogue UI")]
+
+        [SerializeField] private GameObject dialoguePanel;
+
+        [SerializeField] private TextMeshProUGUI dialogueText;
+    
+        [SerializeField] private PlayerInput playerInput;
+
+        private Story _currentStory;
+
+        private bool _dialogueIsPlaying;
+
+        private static DialogueManager _instance;
+    
+        public bool interactPressed => _interactPressed;
+        private bool _interactPressed;
+
+        public bool _canInteract = true;
+
+        private void Awake()
         {
-            Debug.LogWarning("Found more than one dialogue manager in the scene");
+            if (_instance != null)
+            {
+                Debug.LogWarning("Found more than one dialogue manager in the scene");
+            }
+
+            _instance = this;
+        }
+        public static DialogueManager GetInstance()
+        {
+            return _instance;
         }
 
-        instance = this;
-    }
-public static DialogueManager GetInstance()
-    {
-        return instance;
-    }
-
- private void Start()
-    {
-        dialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
-    }
-
-    private void Update()
-    {
-        //return right away if dialogue isn't playing
-        if (!dialogueIsPlaying)
+        private void OnEnable()
         {
-            return;
+            playerInput.InteractEvent += HandleInteract;
         }
 
-        // handle continuing to the next line in the dialogue when submit is pressed
-        if (InputManager.GetInstance().GetSubmitPressed())
+        private void OnDisable()
         {
-            ContinueStory();
-
+            playerInput.InteractEvent -= HandleInteract;
         }
-    }
-
-
-
-    public void EnterDialogueMode(TextAsset inkJSON)
-    {
-        currentStory = new Story(inkJSON.text);
-        dialogueIsPlaying = true;
-        dialoguePanel.SetActive(true);
-
-        ContinueStory();
-
-        if (currentStory.canContinue)
+    
+        private void HandleInteract(bool isPressed)
         {
-            dialogueText.text = currentStory.Continue();
-        }
-        else
-        {
-            ExitDialogueMode();
-        }
-    }
-
-    private void ExitDialogueMode()
-    {
-        dialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
-        dialogueText.text = "";
-    }
-
-    private void ContinueStory()
-    {
-        if (currentStory.canContinue)
-        {
-            dialogueText.text = currentStory.Continue();
-        }
-        else
-        {
-            ExitDialogueMode();
+            _interactPressed = isPressed;
         }
 
-    }
+        private void Start()
+        {
+            _dialogueIsPlaying = false;
+            dialoguePanel.SetActive(false);
+        }
+
+        private void Update()
+        {
+            //return right away if dialogue isn't playing
+            if (!_dialogueIsPlaying)
+            {
+                return;
+            }
+
+            // handle continuing to the next line in the dialogue when submit is pressed
+            if (interactPressed && _canInteract)
+            {
+                ContinueStory();
+                StartCoroutine(CanInteract());
+            }
+        }
+
+        IEnumerator CanInteract()
+        {
+            _canInteract = false;
+            yield return new WaitForSeconds(1f);
+            _canInteract = true;
+        } 
+
+        public void EnterDialogueMode(TextAsset inkJson)
+        {
+            _currentStory = new Story(inkJson.text);
+            _dialogueIsPlaying = true;
+            dialoguePanel.SetActive(true);
+
+            //ContinueStory();
+        }
+
+        private void ExitDialogueMode()
+        {
+            _dialogueIsPlaying = false;
+            dialoguePanel.SetActive(false);
+            dialogueText.text = "";
+        }
+
+        private void ContinueStory()
+        {
+            if (_currentStory.canContinue)
+            {
+                dialogueText.text = _currentStory.Continue();
+            }
+            else
+            {
+                ExitDialogueMode();
+            }
+
+        }
 
   
+    }
 }
