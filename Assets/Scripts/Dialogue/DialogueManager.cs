@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using Ink.Runtime;
 using Player.Input;
 using TMPro;
@@ -23,6 +25,8 @@ namespace Dialogue
     
         public bool interactPressed => _interactPressed;
         private bool _interactPressed;
+
+        public bool _canInteract = true;
 
         private void Awake()
         {
@@ -68,13 +72,19 @@ namespace Dialogue
             }
 
             // handle continuing to the next line in the dialogue when submit is pressed
-            if (interactPressed)
+            if (interactPressed && _canInteract)
             {
                 ContinueStory();
+                StartCoroutine(CanInteract());
             }
         }
 
-
+        IEnumerator CanInteract()
+        {
+            _canInteract = false;
+            yield return new WaitForSeconds(1f);
+            _canInteract = true;
+        } 
 
         public void EnterDialogueMode(TextAsset inkJson)
         {
@@ -82,7 +92,7 @@ namespace Dialogue
             _dialogueIsPlaying = true;
             dialoguePanel.SetActive(true);
 
-            ContinueStory();
+            //ContinueStory();
         }
 
         private void ExitDialogueMode()
