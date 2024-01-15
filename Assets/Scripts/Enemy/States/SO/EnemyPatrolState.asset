@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddf0038ffaada5449ac2568e0eaea08, type: 3}
   m_Name: EnemyPatrolState
   m_EditorClassIdentifier: 
+  innerPatrolRadius: 5
+  outerPatrolRadius: 15
+  goalRadius: 1
+  enemyDetectionRadius: 5
+  patrolTimer: 5
