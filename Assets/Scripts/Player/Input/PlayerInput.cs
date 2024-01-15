@@ -4,16 +4,17 @@ using UnityEngine.InputSystem;
 
 namespace Player.Input
 {
-    public class PlayerInput : MonoBehaviour, GameControls.IPlayerActions
+    public class PlayerInput : MonoBehaviour, GameControls.IPlayerActions, GameControls.ICoreActions
     {
         public event UnityAction<Vector2> MovementEvent = delegate { };
         public event UnityAction RollEvent = delegate {  };
         public event UnityAction RollCancelledEvent = delegate { };
         public event UnityAction<bool> MeleeAttackEvent = delegate { };
-
         public event UnityAction<bool> InteractEvent = delegate { };
+        public event UnityAction<bool> ExitEvent = delegate { };
 
         private GameControls _playerActions;
+        private GameControls.ICoreActions _coreActionsImplementation;
 
         private void OnEnable()
         {
@@ -21,7 +22,7 @@ namespace Player.Input
             {
                 _playerActions = new GameControls();
                 _playerActions.Player.SetCallbacks(this);
-                // _playerActions.UI.SetCallbacks(this);
+                _playerActions.Core.SetCallbacks(this);
             }
 
             EnableGameplayInput();
@@ -35,6 +36,7 @@ namespace Player.Input
         public void DisableAllInput()
         {
             _playerActions.Player.Disable();
+            _playerActions.Core.Disable();
         }
 
         public void EnableGameplayInput()
@@ -42,6 +44,7 @@ namespace Player.Input
             if (_playerActions.Player.enabled) return;
 
             // _playerActions.UI.Disable();
+            _playerActions.Core.Enable();
             _playerActions.Player.Enable();
         }
 
@@ -75,6 +78,18 @@ namespace Player.Input
         }
 
         public void OnInteract(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                ExitEvent?.Invoke(true);
+            }
+            else if (context.canceled)
+            {
+                ExitEvent?.Invoke(false);
+            }
+        }
+
+        public void OnExit(InputAction.CallbackContext context)
         {
             if (context.performed)
             {

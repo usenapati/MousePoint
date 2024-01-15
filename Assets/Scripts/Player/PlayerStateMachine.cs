@@ -14,7 +14,8 @@ namespace Player
         [SerializeField] private Rigidbody rigidBody;
 
         // this Vector2 can be used on each State to determine any change
-        public Vector2 movement { get; private set; }
+        //public Vector2 movement { get; private set; }
+        public Vector2 movement;
         
         // Player Events
         public bool rollPressed => _rollPressed;

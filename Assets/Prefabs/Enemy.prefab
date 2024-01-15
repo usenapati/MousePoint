@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2594604812600351648}
   - component: {fileID: 2594604812600351653}
   - component: {fileID: 2594604812600351650}
-  - component: {fileID: 5027060717847303535}
   - component: {fileID: 3968694889227047462}
   - component: {fileID: 8184609667262152824}
+  - component: {fileID: 5027060717847303535}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -82,6 +82,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slider: {fileID: 5543348123024077003}
   _animationSpeed: 10
+--- !u!114 &3968694889227047462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594604812600351649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f930bad618e1c8f42bec551f88f7122f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  states:
+  - {fileID: 11400000, guid: 452563c91b83721469b87f21b370c3a0, type: 2}
+  - {fileID: 11400000, guid: 615bed56a78e00e47ac0088d601e79a9, type: 2}
+  - {fileID: 11400000, guid: 592e657f53d472240964c2264a88e5cb, type: 2}
+  debug: 1
+  spriteTransform: {fileID: 0}
+  rigidBody: {fileID: 0}
+  agent: {fileID: 0}
+--- !u!195 &8184609667262152824
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594604812600351649}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.34
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.56
+  m_BaseOffset: 0.71
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!82 &5027060717847303535
 AudioSource:
   m_ObjectHideFlags: 0
@@ -178,48 +220,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3968694889227047462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594604812600351649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f930bad618e1c8f42bec551f88f7122f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  states:
-  - {fileID: 11400000, guid: 452563c91b83721469b87f21b370c3a0, type: 2}
-  - {fileID: 11400000, guid: 615bed56a78e00e47ac0088d601e79a9, type: 2}
-  - {fileID: 11400000, guid: 592e657f53d472240964c2264a88e5cb, type: 2}
-  debug: 1
-  spriteTransform: {fileID: 0}
-  rigidBody: {fileID: 0}
-  agent: {fileID: 0}
---- !u!195 &8184609667262152824
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594604812600351649}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.34
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.56
-  m_BaseOffset: 0.71
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &2594604814049464448
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2594604814049464450}
   - component: {fileID: 2594604814049464451}
+  - component: {fileID: 5386422302447762715}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -304,6 +305,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5386422302447762715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594604814049464448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5391f29c9cfcbef4ab7ab7df29b4dfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3606251679516781517
 PrefabInstance:
   m_ObjectHideFlags: 0

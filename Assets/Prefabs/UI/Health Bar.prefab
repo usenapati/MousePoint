@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 7333780667834967390}
   - component: {fileID: 7561122091418064519}
   - component: {fileID: 1825601611027629151}
+  - component: {fileID: 8980438256593874308}
   m_Layer: 0
   m_Name: Health Bar
   m_TagString: Untagged
@@ -149,6 +150,18 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &8980438256593874308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077796764134546147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5391f29c9cfcbef4ab7ab7df29b4dfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4206209949327211851
 GameObject:
   m_ObjectHideFlags: 0

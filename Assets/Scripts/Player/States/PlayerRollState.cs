@@ -21,20 +21,20 @@ namespace Player.States
             parent.animations.PlayRoll();
             
             // grab the direction were the player is aiming in a 3D plane
-            var playerInput = new Vector3(parent.movement.normalized.x, 0, parent.movement.normalized.y);
-            
+            var playerInput = new Vector3(parent.movement.x, 0, parent.movement.y).normalized;
             _elapsedTime = 0f;
 
             var startingPos = parent.transform.position;
 
             // calculate the desired end position
-            _movementDirection = startingPos + playerInput * _rollSpeed;
+            _movementDirection = (playerInput * _rollSpeed);
+            var _movementGizmoDirection = startingPos + (playerInput * _rollSpeed);
 
             if (!_debug) return;
             
             Debug.DrawLine(
                 startingPos,
-                _movementDirection,
+                _movementGizmoDirection,
                 Color.red,
                 .2f
             );
