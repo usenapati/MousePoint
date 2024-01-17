@@ -72,11 +72,11 @@ namespace Dialogue
             }
 
             // handle continuing to the next line in the dialogue when submit is pressed
-            if (interactPressed && _canInteract)
-            {
-                ContinueStory();
-                StartCoroutine(CanInteract());
-            }
+            //if (interactPressed && _canInteract)
+            //{
+                //ContinueStory();
+               // StartCoroutine(CanInteract());
+           // }
         }
 
         IEnumerator CanInteract()
@@ -91,8 +91,8 @@ namespace Dialogue
             _currentStory = new Story(inkJson.text);
             _dialogueIsPlaying = true;
             dialoguePanel.SetActive(true);
-
-            //ContinueStory();
+            playerInput.enabled=false;
+            ContinueStory();
         }
 
         private void ExitDialogueMode()
@@ -100,9 +100,10 @@ namespace Dialogue
             _dialogueIsPlaying = false;
             dialoguePanel.SetActive(false);
             dialogueText.text = "";
+            playerInput.enabled=true;
         }
 
-        private void ContinueStory()
+        public void ContinueStory()
         {
             if (_currentStory.canContinue)
             {
