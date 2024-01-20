@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SpriteShadeMat
-  m_Shader: {fileID: -6465566751694194690, guid: b1be4b854839bdf4a89570cfd4561663,
+  m_Shader: {fileID: -6465566751694194690, guid: 9aea2eb6abd7aea4cbbfa7873fc56a59,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -102,6 +102,9 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _DitherOffset: 0
+    - _DitherRange: 1
+    - _DitherSize: 1
     - _DstBlend: 0
     - _EnableExternalAlpha: 0
     - _EnvironmentReflections: 1
