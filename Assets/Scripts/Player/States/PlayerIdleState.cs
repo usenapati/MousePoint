@@ -1,5 +1,5 @@
-using Core;
 using Core.State_Machine;
+using Player.States.Attacks;
 using UnityEngine;
 
 namespace Player.States
@@ -11,6 +11,7 @@ namespace Player.States
         {
             base.Enter(parent);
             runner.Move(Vector2.zero);
+            parent.animations.PlayIdle();
         }
 
         public override void Tick(float deltaTime)
@@ -23,7 +24,13 @@ namespace Player.States
 
         public override void ChangeState()
         {
-            if (runner.Movement.sqrMagnitude != 0)
+            if (runner.meleeAttackPressed)
+            {
+                runner.SetState(typeof(PlayerAttackState));
+                return;
+            }
+            
+            if (runner.movement.sqrMagnitude != 0)
             {
                 runner.SetState(typeof(PlayerMoveState));
             }
