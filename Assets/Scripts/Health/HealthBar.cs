@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 namespace Health
 {
-    [RequireComponent(typeof(Health))]
     public class HealthBar : MonoBehaviour
     {
         [SerializeField] private Slider _slider;

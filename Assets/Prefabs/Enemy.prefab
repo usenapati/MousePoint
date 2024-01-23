@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2594604812600351651}
   - component: {fileID: 2594604812600351648}
-  - component: {fileID: 2594604812600351653}
-  - component: {fileID: 2594604812600351650}
   - component: {fileID: 3968694889227047462}
   - component: {fileID: 8184609667262152824}
   - component: {fileID: 5027060717847303535}
+  - component: {fileID: 1871290569539185782}
+  - component: {fileID: 8177072284628068885}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -53,35 +53,6 @@ CapsuleCollider:
   m_Height: 1.31
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2594604812600351653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594604812600351649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e47f9de5021062e4a9b024d06bbc608e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _inmuneTime: 1
-  wood: {fileID: 5027060717847303535}
---- !u!114 &2594604812600351650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594604812600351649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab1bacab0008d0b44b64191f90f0d2ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _slider: {fileID: 5543348123024077003}
-  _animationSpeed: 10
 --- !u!114 &3968694889227047462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +191,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1871290569539185782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594604812600351649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1bacab0008d0b44b64191f90f0d2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 5543348123024077003}
+  _animationSpeed: 10
+--- !u!114 &8177072284628068885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594604812600351649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6efbe0cadb0c4f94a9f55c4017134ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  immuneTime: 1
+  hitSoundSource: {fileID: 0}
 --- !u!1 &2594604814049464448
 GameObject:
   m_ObjectHideFlags: 0
