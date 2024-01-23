@@ -297,6 +297,45 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Core"",
+            ""id"": ""c6ecf7c3-78c0-44d1-a5ba-cf1833bf0eaf"",
+            ""actions"": [
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""43ee9fce-3e51-4d06-b5bb-ec6e2d026ed2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""10ba8af5-3397-4f07-8ccd-0f43f8d3a477"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79415ac0-cc06-47eb-8c3a-0bddc4dd2e7a"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -307,6 +346,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
         m_Player_Melee = m_Player.FindAction("Melee", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        // Core
+        m_Core = asset.FindActionMap("Core", throwIfNotFound: true);
+        m_Core_Exit = m_Core.FindAction("Exit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -434,11 +476,61 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Core
+    private readonly InputActionMap m_Core;
+    private List<ICoreActions> m_CoreActionsCallbackInterfaces = new List<ICoreActions>();
+    private readonly InputAction m_Core_Exit;
+    public struct CoreActions
+    {
+        private @GameControls m_Wrapper;
+        public CoreActions(@GameControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Exit => m_Wrapper.m_Core_Exit;
+        public InputActionMap Get() { return m_Wrapper.m_Core; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CoreActions set) { return set.Get(); }
+        public void AddCallbacks(ICoreActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CoreActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CoreActionsCallbackInterfaces.Add(instance);
+            @Exit.started += instance.OnExit;
+            @Exit.performed += instance.OnExit;
+            @Exit.canceled += instance.OnExit;
+        }
+
+        private void UnregisterCallbacks(ICoreActions instance)
+        {
+            @Exit.started -= instance.OnExit;
+            @Exit.performed -= instance.OnExit;
+            @Exit.canceled -= instance.OnExit;
+        }
+
+        public void RemoveCallbacks(ICoreActions instance)
+        {
+            if (m_Wrapper.m_CoreActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICoreActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CoreActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CoreActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CoreActions @Core => new CoreActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnMelee(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface ICoreActions
+    {
+        void OnExit(InputAction.CallbackContext context);
     }
 }

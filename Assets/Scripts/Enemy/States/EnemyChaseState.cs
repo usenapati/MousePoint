@@ -9,6 +9,7 @@ namespace Enemy.States
     {
         [SerializeField] private float enemyAttackRadius = 3f;
         [SerializeField] private float enemyDetectionRadius = 10f;
+        [SerializeField] private bool canPatrol = true;
         // Last seen player 
         // Enemy Speed
         
@@ -32,9 +33,14 @@ namespace Enemy.States
             }
             
             // If the player is not in sight for a period of time, patrol
-            if (!runner.IsEnemyInRadius(enemyDetectionRadius)) // Last seen player
+            if (!runner.IsEnemyInRadius(enemyDetectionRadius) && canPatrol) // Last seen player
             {
                 runner.SetState(typeof(EnemyPatrolState));
+            }
+
+            if (!runner.IsEnemyInRadius(enemyDetectionRadius) && !canPatrol)
+            {
+                runner.SetState(typeof(EnemyIdleState));
             }
         }
     }
