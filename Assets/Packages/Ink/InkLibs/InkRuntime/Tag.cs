@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ink.Runtime
+﻿namespace Ink.Runtime
 {
     // New version of tags is dynamic - it constructs the tags
     // at runtime based on BeginTag and EndTag control commands.

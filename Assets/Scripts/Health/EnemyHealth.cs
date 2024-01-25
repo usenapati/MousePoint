@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using UnityEngine;
-
 namespace Health
 {
     public class EnemyHealth : Health
