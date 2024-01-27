@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Environments/InteractiveENV.meta
+guid: 94eb9c696dc986b4ba6d2b08fed9f195
+folderAsset: yes
+DefaultImporter:
+========
+guid: 491ebafe13899be4cb9ac679269f2f34
+NativeFormatImporter:
+>>>>>>>> udayan/enemy-ai:Assets/Scripts/Enemy/States/Attacks/SO/Attack.asset.meta
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

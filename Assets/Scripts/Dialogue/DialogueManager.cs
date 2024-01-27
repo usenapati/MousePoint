@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Ink.Runtime;
 using Player.Input;
 using TMPro;

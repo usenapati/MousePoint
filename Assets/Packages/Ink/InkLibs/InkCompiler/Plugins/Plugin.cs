@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ink
+﻿namespace Ink
 {
     public interface IPlugin
     {  
