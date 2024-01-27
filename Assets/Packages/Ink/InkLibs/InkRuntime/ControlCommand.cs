@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ink.Runtime
+﻿namespace Ink.Runtime
 {
     public class ControlCommand : Runtime.Object
     {

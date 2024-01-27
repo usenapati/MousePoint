@@ -1,3 +1,4 @@
+using System.Collections;
 using Core.State_Machine;
 using Player;
 using UnityEngine;
@@ -18,7 +19,8 @@ namespace Enemy
         public bool canAttack => _canAttack;
         private bool _canAttack = true;
 
-        
+        public bool isFacingRight => _isFacingRight;
+        private bool _isFacingRight = false;
         
         protected override void Start()
         {
@@ -31,13 +33,20 @@ namespace Enemy
         public void PatrolRadius(float innerPatrolRadius, float outerPatrolRadius)
         {
             // Generate position in radius
-            agent.destination = GeneratePositionInRadius(innerPatrolRadius, outerPatrolRadius);
+            if (agent.enabled)
+            {
+                agent.destination = GeneratePositionInRadius(innerPatrolRadius, outerPatrolRadius);
+            }
         }
         
         // Follow Player - Chase
         public void FollowPlayer()
         {
-            agent.SetDestination(playerStateMachine.gameObject.transform.position);
+            if (agent.enabled)
+            {
+                agent.SetDestination(playerStateMachine.gameObject.transform.position);
+            }
+            CheckFlipSprite(agent.velocity);
         }
 
         public bool IsEnemyInRadius(float detectionRadius)
@@ -58,12 +67,29 @@ namespace Enemy
             return transform.position + randomPosition.normalized * innerRadius + randomPosition * (outerRadius - innerRadius);
         }
         
-        // Has Completed Attack
-        private void Attack()
+        private void CheckFlipSprite(Vector2 velocity)
         {
+            if ((!(velocity.x > 0f) || _isFacingRight) && (!(velocity.x < 0f) || !_isFacingRight)) return;
+            
+            _isFacingRight = !_isFacingRight;
+            spriteTransform.Rotate(spriteTransform.rotation.x, -180f, spriteTransform.rotation.z);
+        }
+        
+        // Has Completed Attack
+        public void Attack(float attackCooldown)
+        {
+            agent.enabled = false;
             // Play Animation
             _canAttack = false;
             // Start coroutine, wait X time, reset canAttack to true;
+            StartCoroutine(AttackCooldown(attackCooldown));
+        }
+
+        private IEnumerator AttackCooldown(float attackCooldown)
+        {
+            yield return new WaitForSeconds(attackCooldown);
+            _canAttack = true;
+            agent.enabled = true;
         }
     }
 }

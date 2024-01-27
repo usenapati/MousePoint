@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Ink.Parsed
+﻿namespace Ink.Parsed
 {
     public class VariableAssignment : Parsed.Object
     {

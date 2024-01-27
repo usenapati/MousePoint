@@ -1,6 +1,4 @@
-﻿using Ink.Runtime;
-
-namespace Ink.Runtime
+﻿namespace Ink.Runtime
 {
     /// <summary>
     /// Internal structure used to point to a particular / current point in the story.

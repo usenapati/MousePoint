@@ -24,7 +24,7 @@ namespace Player
         public bool meleeAttackPressed => _meleePressed;
         private bool _meleePressed;
 
-        // since our sprite is facing right, we set it to true
+        // since our sprite is facing left, we set it to false (right is set to true)
         public bool isFacingRight => _isFacingRight;
         private bool _isFacingRight = false;
 
@@ -58,6 +58,8 @@ namespace Player
             playerInput.RollCancelledEvent -= HandleCancelledRoll;
             playerInput.MeleeAttackEvent -= HandleMelee;
         }
+        
+        // Events
 
         private void HandleMove(Vector2 newMovement)
         {
@@ -79,6 +81,8 @@ namespace Player
         {
             _meleePressed = isPressed;
         }
+        
+        // Public Methods
 
         private void CheckFlipSprite(Vector2 velocity)
         {
@@ -88,7 +92,7 @@ namespace Player
             spriteTransform.Rotate(spriteTransform.rotation.x, -180f, spriteTransform.rotation.z);
         }
 
-        // just  a simple implementation of movement by setting the velocity of the Rigidbody
+        // Just a simple implementation of movement by setting the velocity of the Rigidbody
         public void Move(Vector3 velocity)
         {
             rigidBody.velocity = velocity;

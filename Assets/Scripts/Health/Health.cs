@@ -6,23 +6,23 @@ namespace Health
 {
     public class Health : MonoBehaviour, IDamageable
     {
-        [SerializeField] private float _maxHealth = 100;
-        [SerializeField] private float _inmuneTime = 1f;
+        [SerializeField] private float maxHealth = 100;
+        [SerializeField] private float immuneTime = 1f;
         //Delete After Alpha
-        [SerializeField] AudioSource wood;
+        [SerializeField] private AudioSource hitSoundSource;
         public event Action<float, float> OnTakeDamage;
         public event Action OnDie;
         public event Action<float> OnSetupHealth;
 
-        private bool _isDead => _health == 0;
-        private float _health;
-        private WaitForSeconds _waitingTime;
-        private bool _isInmune;
+        protected bool isDead => _health == 0;
+        protected float _health;
+        protected WaitForSeconds waitingTime;
+        protected bool isImmune;
     
         private void Awake()
         {
-            _health = _maxHealth;
-            _waitingTime = new WaitForSeconds(_inmuneTime);
+            _health = maxHealth;
+            waitingTime = new WaitForSeconds(immuneTime);
         }
     
         private void Start()
@@ -30,23 +30,23 @@ namespace Health
             OnSetupHealth?.Invoke(_health);
         }
     
-        public void Setup(int maxHealth)
+        public void Setup(int initialMaxHealth)
         {
-            _maxHealth = maxHealth;
-            _health = maxHealth;
+            this.maxHealth = initialMaxHealth;
+            _health = initialMaxHealth;
     
             OnSetupHealth?.Invoke(_health);
         }
     
         public void Heal(float amount)
         {
-            _health = Mathf.Min(_health + amount, _maxHealth);
+            _health = Mathf.Min(_health + amount, maxHealth);
             OnTakeDamage?.Invoke(0, _health);
         }
     
         public bool Damage(float amount)
         {
-            if (_isDead || _isInmune) { return false; }
+            if (isDead || isImmune) { return false; }
     
             _health = Mathf.Max(_health - amount, 0);
     
@@ -54,27 +54,27 @@ namespace Health
     
             StartCoroutine(Immune());
             //Delete After Alpha
-               wood.Play();
-            if (_isDead)
+            hitSoundSource.Play();
+            if (isDead)
             {
                 Die();
             }
     
             return true;
         }
-    
-        private void Die()
+
+        protected virtual void Die()
         {
-            _isInmune = true;
+            isImmune = true;
             OnDie?.Invoke();
-            Destroy(transform.root.gameObject);
+            
         }
     
         private IEnumerator Immune()
         {
-            _isInmune = true;
-            yield return _waitingTime;
-            _isInmune = false;
+            isImmune = true;
+            yield return waitingTime;
+            isImmune = false;
         }
     }
 }

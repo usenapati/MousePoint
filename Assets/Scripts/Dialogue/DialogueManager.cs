@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Ink.Runtime;
 using Player.Input;
 using TMPro;
@@ -55,6 +54,7 @@ namespace Dialogue
         private void HandleInteract(bool isPressed)
         {
             _interactPressed = isPressed;
+            Debug.Log("Pressed");
         }
 
         private void Start()
@@ -66,10 +66,10 @@ namespace Dialogue
         private void Update()
         {
             //return right away if dialogue isn't playing
-            if (!_dialogueIsPlaying)
-            {
-                return;
-            }
+            // if (!_dialogueIsPlaying)
+            // {
+            //     return;
+            // }
 
             // handle continuing to the next line in the dialogue when submit is pressed
             //if (interactPressed && _canInteract)

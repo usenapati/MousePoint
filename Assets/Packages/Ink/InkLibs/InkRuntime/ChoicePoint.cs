@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace Ink.Runtime
+﻿namespace Ink.Runtime
 {
     /// <summary>
     /// The ChoicePoint represents the point within the Story where

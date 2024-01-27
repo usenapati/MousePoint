@@ -81,11 +81,11 @@ namespace Player.Input
         {
             if (context.performed)
             {
-                ExitEvent?.Invoke(true);
+                InteractEvent?.Invoke(true);
             }
             else if (context.canceled)
             {
-                ExitEvent?.Invoke(false);
+                InteractEvent?.Invoke(false);
             }
         }
 
@@ -93,11 +93,11 @@ namespace Player.Input
         {
             if (context.performed)
             {
-                InteractEvent?.Invoke(true);
+                ExitEvent?.Invoke(true);
             }
             else if (context.canceled)
             {
-                InteractEvent?.Invoke(false);
+                ExitEvent?.Invoke(false);
             }
         }
     }
