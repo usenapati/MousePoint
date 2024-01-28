@@ -3,11 +3,19 @@ using Ink.Runtime;
 using Player.Input;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 namespace Dialogue
 {
     public class DialogueManager : MonoBehaviour
     {
+        //Choices
+        [SerializeField] private VerticalLayoutGroup _choiceButtonContainer;
+
+        [SerializeField] private Button _choiceButtonPrefab;
+        //Choices
+
         [Header("Dialogue UI")]
 
         [SerializeField] private GameObject dialoguePanel;
@@ -54,7 +62,6 @@ namespace Dialogue
         private void HandleInteract(bool isPressed)
         {
             _interactPressed = isPressed;
-            Debug.Log("Pressed");
         }
 
         private void Start()
@@ -62,22 +69,75 @@ namespace Dialogue
             _dialogueIsPlaying = false;
             dialoguePanel.SetActive(false);
         }
-
-        private void Update()
+        //Choices
+        private void DisplayChoices()
         {
-            //return right away if dialogue isn't playing
-            // if (!_dialogueIsPlaying)
-            // {
-            //     return;
-            // }
+           // checks if choices are already being displaye
+            if (_choiceButtonContainer.GetComponentsInChildren<Button>().Length > 0) return;
+            for (int i = 0; i < _currentStory.currentChoices.Count; i++) // iterates through all choices
+            {
+                var choice = _currentStory.currentChoices[i];
+                var button = CreateChoiceButton(choice.text); // creates a choice button
 
-            // handle continuing to the next line in the dialogue when submit is pressed
-            //if (interactPressed && _canInteract)
-            //{
-                //ContinueStory();
-               // StartCoroutine(CanInteract());
-           // }
+                button.onClick.AddListener(() => OnClickChoiceButton(choice));
+            }
         }
+        
+        Button CreateChoiceButton(string text)
+{
+  // creates the button from a prefab
+  var choiceButton = Instantiate(_choiceButtonPrefab);
+  choiceButton.transform.SetParent(_choiceButtonContainer.transform, false);
+  
+  // sets text on the button
+  var buttonText = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
+  buttonText.text = text;
+
+  return choiceButton;
+}
+
+    void OnClickChoiceButton(Choice choice)
+{
+  _currentStory.ChooseChoiceIndex(choice.index); // tells ink which choice was selected
+  RefreshChoiceView(); // removes choices from the screen
+  DisplayNextLine();
+
+}
+
+void RefreshChoiceView()
+{
+  if (_choiceButtonContainer != null)
+  {
+    foreach (var button in _choiceButtonContainer.GetComponentsInChildren<Button>())
+    {
+      Destroy(button.gameObject);
+    }
+  }
+}
+public void DisplayNextLine()
+{
+  if (_currentStory.canContinue)
+  {
+    string text = _currentStory.Continue(); // gets next line
+    
+    text = text?.Trim(); // removes white space from text
+    
+     dialogueText.text = text; // displays new text
+  }
+  else if (_currentStory.currentChoices.Count > 0)
+  {
+    DisplayChoices();
+  }
+  else 
+  {
+    ExitDialogueMode();
+  }
+}
+
+
+
+        //Choices
+        
 
         IEnumerator CanInteract()
         {
@@ -92,7 +152,7 @@ namespace Dialogue
             _dialogueIsPlaying = true;
             dialoguePanel.SetActive(true);
             playerInput.enabled=false;
-            ContinueStory();
+            DisplayNextLine();
         }
 
         private void ExitDialogueMode()
@@ -103,18 +163,7 @@ namespace Dialogue
             playerInput.enabled=true;
         }
 
-        public void ContinueStory()
-        {
-            if (_currentStory.canContinue)
-            {
-                dialogueText.text = _currentStory.Continue();
-            }
-            else
-            {
-                ExitDialogueMode();
-            }
-
-        }
+        
 
   
     }
