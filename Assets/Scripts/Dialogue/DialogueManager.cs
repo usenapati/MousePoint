@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using Ink.Runtime;
 using Player.Input;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SearchService;
 using UnityEngine.UI;
 
 
@@ -15,7 +17,11 @@ namespace Dialogue
 
         [SerializeField] private Button _choiceButtonPrefab;
         //Choices
-
+        //Tags
+        private const string SPEAKER_TAG ="speaker";
+        private const string PORTRAIT_TAG = "portrait";
+        private const string LAYOUT_TAG = "layout";
+        //Tags
         [Header("Dialogue UI")]
 
         [SerializeField] private GameObject dialoguePanel;
@@ -123,6 +129,7 @@ public void DisplayNextLine()
     text = text?.Trim(); // removes white space from text
     
      dialogueText.text = text; // displays new text
+     HandleTags(_currentStory.currentTags);//Tags
   }
   else if (_currentStory.currentChoices.Count > 0)
   {
@@ -133,8 +140,37 @@ public void DisplayNextLine()
     ExitDialogueMode();
   }
 }
-
-
+//Tags
+private void HandleTags(List<string> currentTags)
+{
+    foreach (string tag in currentTags)
+    {
+        string[] splitTag = tag.Split(':');
+        if (splitTag.Length != 2)
+        {
+            Debug.LogError("Tag could not be appropriately parsed: " +tag);
+        }
+        string tagKey = splitTag[0].Trim();
+        string tagValue = splitTag[1].Trim();
+        //handle the tag
+        switch (tagKey)
+        {
+            case SPEAKER_TAG:
+                Debug.Log("speaker=" + tagValue);
+            break;
+            case PORTRAIT_TAG:
+                Debug.Log("portrait=" + tagValue);
+            break;
+            case LAYOUT_TAG:
+                Debug.Log("layout=" + tagValue);
+            break;
+            default:
+            Debug.LogWarning("Tag came in but is not currently being handled:" + tag);
+            break;
+        }
+    }
+}
+//Tags
 
         //Choices
         

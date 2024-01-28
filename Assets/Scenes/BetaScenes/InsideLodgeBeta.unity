@@ -473,6 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596c2735f1b0d4178a49bcb452d02e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _choiceButtonContainer: {fileID: 0}
+  _choiceButtonPrefab: {fileID: 0}
   dialoguePanel: {fileID: 374003450}
   dialogueText: {fileID: 1447047306}
   playerInput: {fileID: 1046417088}
@@ -2350,7 +2352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516395814}
   m_LocalRotation: {x: 0.0032720165, y: -0.70709926, z: 0.70709926, w: 0.0032720165}
-  m_LocalPosition: {x: 0.8, y: 0.51, z: -17.97}
+  m_LocalPosition: {x: 0.8, y: 0.668, z: -17.97}
   m_LocalScale: {x: 0.3114, y: 0.3114, z: 0.3114}
   m_ConstrainProportionsScale: 0
   m_Children: []
