@@ -54,7 +54,6 @@ namespace Dialogue
         private void HandleInteract(bool isPressed)
         {
             _interactPressed = isPressed;
-            Debug.Log("Pressed");
         }
 
         private void Start()
