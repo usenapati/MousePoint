@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 745a1b419f040c84d81a3a7216bb8f2b, type: 3}
-  m_Name: CollectItemQuest
+  m_Name: DefeatEnemiesQuest
   m_EditorClassIdentifier: 
-  <id>k__BackingField: CollectItemQuest
-  displayName: Collect the items!
+  <id>k__BackingField: DefeatEnemiesQuest
+  displayName: Defeat the enemies!
   questPrerequisites: []
   questStepPrefabs: []

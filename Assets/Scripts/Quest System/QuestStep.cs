@@ -2,18 +2,20 @@ using UnityEngine;
 
 namespace Quest_System
 {
-    public class QuestStep : MonoBehaviour
+    public abstract class QuestStep : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        private bool _isFinished = false;
 
-        // Update is called once per frame
-        void Update()
+        protected void FinishQuestStep()
         {
-        
+            if (!_isFinished)
+            {
+                _isFinished = true;
+                
+                // TODO - Advance quest forward
+                
+                Destroy(gameObject);
+            }
         }
     }
 }

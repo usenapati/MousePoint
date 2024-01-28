@@ -9,7 +9,7 @@ namespace Core.Managers
     {
         public static GameEventsManager instance { get; private set; }
 
-        public InputManager inputManager;
+        public InputManager inputManager; // TODO Access PLayer Input (Can't initialize it)
         public DialogueManager dialogueManager;
         public QuestEvents questEvents;
 
@@ -22,7 +22,7 @@ namespace Core.Managers
 
             instance = this;
             
-            // Initialize Events
+            // TODO Connect to other events in other scripts
         }
     }
 }
