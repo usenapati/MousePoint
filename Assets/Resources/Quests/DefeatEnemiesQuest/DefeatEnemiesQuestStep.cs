@@ -10,7 +10,7 @@ namespace Resources.Quests.DefeatEnemiesQuest
         
         private int _enemiesDefeated = 0;
 
-        private int _enemiesToDefeat = 5;
+        private int _enemiesToDefeat = 3;
 
         private void OnEnable()
         {

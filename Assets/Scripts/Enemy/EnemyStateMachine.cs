@@ -26,6 +26,7 @@ namespace Enemy
         {
             base.Start();
             playerStateMachine = FindObjectOfType<PlayerStateMachine>();
+            agent = GetComponent<NavMeshAgent>();
         }
 
         // Methods for Agent
@@ -91,5 +92,7 @@ namespace Enemy
             _canAttack = true;
             agent.enabled = true;
         }
+        
+        // TODO Handle Death (Disable Navmesh Agent)
     }
 }

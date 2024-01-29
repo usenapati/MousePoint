@@ -50,6 +50,8 @@ namespace Enemy.States.Attacks
 
         public override void ChangeState()
         {
+            if (!runner)
+                return;
             // Back to Chase after attack is finished
             if (!runner.canAttack)
             {

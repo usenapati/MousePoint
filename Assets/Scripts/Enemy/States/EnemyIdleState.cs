@@ -26,6 +26,8 @@ namespace Enemy.States
 
         public override void ChangeState()
         {
+            if (!runner)
+                return;
             // Check if player is in radius and in sight, if so chase them
             if (runner.IsEnemyInRadius(enemyDetectionRadius))
             {
