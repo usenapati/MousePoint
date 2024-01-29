@@ -15,4 +15,5 @@ MonoBehaviour:
   <id>k__BackingField: DefeatEnemiesQuest
   displayName: Defeat the enemies!
   questPrerequisites: []
-  questStepPrefabs: []
+  questStepPrefabs:
+  - {fileID: 7432630108805854214, guid: e220b27d6b757484eb1684ff65929579, type: 3}

@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class EnemyEvents : MonoBehaviour
+namespace Events
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EnemyEvents
     {
-        
-    }
+        public event Action OnEnemyDefeated;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void EnemyDefeated()
+        {
+            OnEnemyDefeated?.Invoke();
+        }
     }
 }

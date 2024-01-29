@@ -1,18 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class InputEvents : MonoBehaviour
+namespace Events
 {
-    // Start is called before the first frame update
-    void Start()
+    public class InputEvents
     {
-        
-    }
+        public event Action<Vector2> OnMovePressed;
+        public event Action OnRollPressed;
+        public event Action OnMeleeAttackPressed;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public event Action OnInteractPressed;
+
+        public void MovePressed(Vector2 moveDir)
+        {
+            OnMovePressed?.Invoke(moveDir);
+        }
+
+        public void RollPressed()
+        {
+            OnRollPressed?.Invoke();
+        }
+
+        public void MeleePressed()
+        {
+            OnMeleeAttackPressed?.Invoke();
+        }
+
+        public void InteractPressed()
+        {
+            OnInteractPressed?.Invoke();
+        }
     }
 }

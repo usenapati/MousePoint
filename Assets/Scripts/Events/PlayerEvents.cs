@@ -1,18 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class PlayerEvents : MonoBehaviour
+namespace Events
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerEvents
     {
-        
-    }
+        public event Action OnPlayerDeath;
+        public event Action OnPlayerSpawn;
+        public event Action OnEnablePlayerMovement;
+        public event Action OnDisablePlayerMovement;
 
-    // Update is called once per frame
-    void Update()
-    {
+        public void PlayerDeath()
+        {
+            OnPlayerDeath?.Invoke();
+        }
+
+        public void PlayerSpawn()
+        {
+            OnPlayerSpawn?.Invoke();
+        }
+
+        public void EnablePlayerMovement()
+        {
+            OnEnablePlayerMovement?.Invoke();
+        }
         
+        public void DisablePlayerMovement()
+        {
+            OnDisablePlayerMovement?.Invoke();
+        }
     }
 }

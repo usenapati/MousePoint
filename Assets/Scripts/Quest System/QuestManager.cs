@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Core.Managers;
 using UnityEngine;
 
 namespace Quest_System
@@ -11,6 +12,43 @@ namespace Quest_System
         private void Awake()
         {
             _questMap = CreateQuestMap();
+        }
+
+        private void OnEnable()
+        {
+            GameEventsManager.instance.questEvents.OnStartQuest += StartQuest;
+            GameEventsManager.instance.questEvents.OnAdvanceQuest += AdvanceQuest;
+            GameEventsManager.instance.questEvents.OnFinishQuest += FinishQuest;
+        }
+
+        private void OnDisable()
+        {
+            GameEventsManager.instance.questEvents.OnStartQuest -= StartQuest;
+            GameEventsManager.instance.questEvents.OnAdvanceQuest -= AdvanceQuest;
+            GameEventsManager.instance.questEvents.OnFinishQuest -= FinishQuest;
+        }
+
+        private void Start()
+        {
+            foreach (Quest quest in _questMap.Values)
+            {
+                GameEventsManager.instance.questEvents.QuestStateChange(quest);
+            }
+        }
+
+        private void StartQuest(string id)
+        {
+            
+        }
+
+        private void AdvanceQuest(string id)
+        {
+            
+        }
+
+        private void FinishQuest(string id)
+        {
+            
         }
 
         private Dictionary<string, Quest> CreateQuestMap()

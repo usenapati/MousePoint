@@ -1,18 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
+using Quest_System;
 
-public class QuestEvents : MonoBehaviour
+namespace Events
 {
-    // Start is called before the first frame update
-    void Start()
+    public class QuestEvents
     {
-        
-    }
+        public event Action<string> OnStartQuest;
+        public event Action<string> OnAdvanceQuest;
+        public event Action<string> OnFinishQuest;
+        public event Action<Quest> OnQuestStateChange;
+        public event Action<string, int, QuestStepState> OnQuestStepStateChange;
 
-    // Update is called once per frame
-    void Update()
-    {
+        public void StartQuest(string id)
+        {
+            OnStartQuest?.Invoke(id);
+        }
+    
+        public void AdvanceQuest(string id)
+        {
+            OnAdvanceQuest?.Invoke(id);
+        }
+    
+        public void FinishQuest(string id)
+        {
+            OnFinishQuest?.Invoke(id);
+        }
+    
         
+        public void QuestStateChange(Quest quest)
+        {
+            OnQuestStateChange?.Invoke(quest);
+        }
+        
+        public void QuestStepStateChange(string id, int stepIndex, QuestStepState questStepState)
+        {
+            OnQuestStepStateChange?.Invoke(id, stepIndex, questStepState);
+        }
     }
 }

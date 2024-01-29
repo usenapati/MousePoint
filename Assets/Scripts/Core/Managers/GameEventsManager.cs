@@ -1,6 +1,5 @@
-using System;
 using Dialogue;
-using Player.Input;
+using Events;
 using UnityEngine;
 
 namespace Core.Managers
@@ -8,9 +7,12 @@ namespace Core.Managers
     public class GameEventsManager : MonoBehaviour
     {
         public static GameEventsManager instance { get; private set; }
-
-        public InputManager inputManager; // TODO Access PLayer Input (Can't initialize it)
-        public DialogueManager dialogueManager;
+        
+        public DialogueEvents dialogueEvents;
+        public PlayerEvents playerEvents;
+        public InputEvents inputEvents;
+        public EnemyEvents enemyEvents;
+        public EnvironmentEvents environmentEvents;
         public QuestEvents questEvents;
 
         private void Awake()
@@ -21,8 +23,13 @@ namespace Core.Managers
             }
 
             instance = this;
-            
-            // TODO Connect to other events in other scripts
+
+            playerEvents = new PlayerEvents();
+            inputEvents = new InputEvents();
+            enemyEvents = new EnemyEvents();
+            environmentEvents = new EnvironmentEvents();
+            questEvents = new QuestEvents();
+            dialogueEvents = new DialogueEvents();
         }
     }
 }

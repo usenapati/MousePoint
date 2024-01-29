@@ -15,4 +15,5 @@ MonoBehaviour:
   <id>k__BackingField: CollectItemQuest
   displayName: Collect the items!
   questPrerequisites: []
-  questStepPrefabs: []
+  questStepPrefabs:
+  - {fileID: 6023526321599193123, guid: 18e158fe576de9c43a5a01d705702782, type: 3}

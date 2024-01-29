@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class EnvironmentEvents : MonoBehaviour
+namespace Events
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EnvironmentEvents
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public event Action<string> OnItemGained;
+        public void GoldGained(string item)
+        {
+            OnItemGained?.Invoke(item);
+        }
     }
 }

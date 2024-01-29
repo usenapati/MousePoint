@@ -1,21 +1,39 @@
+using Core.Managers;
 using UnityEngine;
 
 namespace Quest_System
 {
     public abstract class QuestStep : MonoBehaviour
     {
-        private bool _isFinished = false;
+        private bool isFinished = false;
+        private string questId;
+        private int stepIndex;
+
+        public void InitializeQuestStep(string questId, int stepIndex, string questStepState)
+        {
+            this.questId = questId;
+            this.stepIndex = stepIndex;
+            if (questStepState != null && questStepState != "")
+            {
+                SetQuestStepState(questStepState);
+            }
+        }
 
         protected void FinishQuestStep()
         {
-            if (!_isFinished)
+            if (!isFinished)
             {
-                _isFinished = true;
-                
-                // TODO - Advance quest forward
-                
-                Destroy(gameObject);
+                isFinished = true;
+                GameEventsManager.instance.questEvents.AdvanceQuest(questId);
+                Destroy(this.gameObject);
             }
         }
+
+        protected void ChangeState(string newState)
+        {
+            GameEventsManager.instance.questEvents.QuestStepStateChange(questId, stepIndex, new QuestStepState(newState));
+        }
+
+        protected abstract void SetQuestStepState(string state);
     }
 }

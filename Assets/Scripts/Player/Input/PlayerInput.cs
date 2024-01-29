@@ -1,3 +1,4 @@
+using Core.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -37,6 +38,8 @@ namespace Player.Input
         {
             _playerActions.Player.Disable();
             _playerActions.Core.Disable();
+            
+            GameEventsManager.instance.playerEvents.DisablePlayerMovement();
         }
 
         public void EnableGameplayInput()
@@ -46,11 +49,14 @@ namespace Player.Input
             // _playerActions.UI.Disable();
             _playerActions.Core.Enable();
             _playerActions.Player.Enable();
+            
+            GameEventsManager.instance.playerEvents.EnablePlayerMovement();
         }
 
         public void OnMovement(InputAction.CallbackContext context)
         {
             MovementEvent?.Invoke(context.ReadValue<Vector2>());
+            GameEventsManager.instance.inputEvents.MovePressed(context.ReadValue<Vector2>());
         }
 
         public void OnRoll(InputAction.CallbackContext context)
@@ -58,6 +64,7 @@ namespace Player.Input
             if (context.performed)
             {
                 RollEvent?.Invoke();
+                GameEventsManager.instance.inputEvents.RollPressed();
             } 
             if (context.canceled)
             {
@@ -70,6 +77,7 @@ namespace Player.Input
             if (context.performed)
             {
                 MeleeAttackEvent?.Invoke(true);
+                GameEventsManager.instance.inputEvents.MeleePressed();
             }
             else if (context.canceled)
             {
@@ -82,6 +90,7 @@ namespace Player.Input
             if (context.performed)
             {
                 InteractEvent?.Invoke(true);
+                GameEventsManager.instance.inputEvents.InteractPressed();
             }
             else if (context.canceled)
             {
