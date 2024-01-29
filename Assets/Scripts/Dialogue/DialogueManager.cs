@@ -21,6 +21,7 @@ namespace Dialogue
         private const string SPEAKER_TAG ="speaker";
         private const string PORTRAIT_TAG = "portrait";
         private const string LAYOUT_TAG = "layout";
+        [SerializeField] private TextMeshProUGUI displayNameText;
         //Tags
         [Header("Dialogue UI")]
 
@@ -156,7 +157,8 @@ private void HandleTags(List<string> currentTags)
         switch (tagKey)
         {
             case SPEAKER_TAG:
-                Debug.Log("speaker=" + tagValue);
+            displayNameText.text = tagValue;
+                //Debug.Log("speaker=" + tagValue);
             break;
             case PORTRAIT_TAG:
                 Debug.Log("portrait=" + tagValue);
