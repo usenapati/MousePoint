@@ -25,6 +25,8 @@ namespace Enemy.States
 
         public override void Tick(float deltaTime)
         {
+            if (!runner)
+                return;
             // If enemy doesn't reach location in given time, generate a new position
             if (runner.IsEnemyInGoalRadius(goalRadius) || _waitTime <= 0)
             {
@@ -42,6 +44,8 @@ namespace Enemy.States
 
         public override void ChangeState()
         {
+            if (!runner)
+                return;
             // Check if player is in radius and in sight, if so chase them
             if (runner.IsEnemyInRadius(enemyDetectionRadius))
             {

@@ -16,6 +16,8 @@ namespace Enemy.States
         
         public override void Tick(float deltaTime)
         {
+            if (!runner)
+                return;
             runner.FollowPlayer();
         }
 
@@ -25,6 +27,8 @@ namespace Enemy.States
 
         public override void ChangeState()
         {
+            if (!runner)
+                return;
             // If player is in range, attack the player
             
             if (runner.IsEnemyInRadius(enemyAttackRadius) && runner.canAttack)

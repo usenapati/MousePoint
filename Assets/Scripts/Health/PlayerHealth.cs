@@ -1,3 +1,5 @@
+using Core.Managers;
+
 namespace Health
 {
     
@@ -8,6 +10,7 @@ namespace Health
         // Scene Manager/Respawn Manager - Respawn player in same scene or different scene
         protected override void Die()
         {
+            GameEventsManager.instance.playerEvents.PlayerDeath();
             // Disable Player Input
             // Death Animation
             // Hide Player Sprites
@@ -18,6 +21,7 @@ namespace Health
 
         public void Respawn()
         {
+            GameEventsManager.instance.playerEvents.PlayerSpawn();
             // Show Player Sprites
             // Reset Player's Health
             // Enable Player Input
