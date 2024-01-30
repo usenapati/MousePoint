@@ -40,7 +40,7 @@ namespace Quest_System
             foreach (Quest quest in _questMap.Values)
             {
                 // initialize any loaded quest steps
-                if (quest.state == QuestState.IN_PROGRESS)
+                if (quest.state == QuestState.InProgress)
                 {
                     quest.InstantiateCurrentQuestStep(this.transform);
                 }
@@ -65,7 +65,7 @@ namespace Quest_System
 
             foreach (var prerequisiteQuestInfo in quest.info.questPrerequisites)
             {
-                if (GetQuestById(prerequisiteQuestInfo.id).state != QuestState.FINISHED)
+                if (GetQuestById(prerequisiteQuestInfo.id).state != QuestState.Finished)
                 {
                     meetsRequirements = false;
                     break;
@@ -81,9 +81,9 @@ namespace Quest_System
             foreach (Quest quest in _questMap.Values)
             {
                 // if we're now meeting the requirements, switch over to the CAN_START state
-                if (quest.state == QuestState.REQUIREMENTS_NOT_MET && CheckRequirementsMet(quest))
+                if (quest.state == QuestState.RequirementsNotMet && CheckRequirementsMet(quest))
                 {
-                    ChangeQuestState(quest.info.id, QuestState.CAN_START);
+                    ChangeQuestState(quest.info.id, QuestState.CanStart);
                 }
             }
         }
@@ -92,7 +92,7 @@ namespace Quest_System
         {
             Quest quest = GetQuestById(id);
             quest.InstantiateCurrentQuestStep(this.transform);
-            ChangeQuestState(quest.info.id, QuestState.IN_PROGRESS);
+            ChangeQuestState(quest.info.id, QuestState.InProgress);
         }
 
         private void AdvanceQuest(string id)
@@ -110,14 +110,14 @@ namespace Quest_System
             // if there are no more steps, then we've finished all of them for this quest
             else
             {
-                ChangeQuestState(quest.info.id, QuestState.CAN_FINISH);
+                ChangeQuestState(quest.info.id, QuestState.CanFinish);
             }
         }
 
         private void FinishQuest(string id)
         {
             Quest quest = GetQuestById(id);
-            ChangeQuestState(quest.info.id, QuestState.FINISHED);
+            ChangeQuestState(quest.info.id, QuestState.Finished);
         }
         
         private void QuestStepStateChange(string id, int stepIndex, QuestStepState questStepState)

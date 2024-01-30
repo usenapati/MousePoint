@@ -15,7 +15,7 @@ namespace Quest_System
 public Quest(QuestInfoSO questInfo)
     {
         info = questInfo;
-        state = QuestState.REQUIREMENTS_NOT_MET;
+        state = QuestState.RequirementsNotMet;
         currentQuestStepIndex = 0;
         questStepStates = new QuestStepState[info.questStepPrefabs.Length];
         for (int i = 0; i < questStepStates.Length; i++)
