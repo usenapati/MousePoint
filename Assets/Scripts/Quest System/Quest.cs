@@ -14,10 +14,10 @@ namespace Quest_System
 
 public Quest(QuestInfoSO questInfo)
     {
-        this.info = questInfo;
-        this.state = QuestState.REQUIREMENTS_NOT_MET;
-        this.currentQuestStepIndex = 0;
-        this.questStepStates = new QuestStepState[info.questStepPrefabs.Length];
+        info = questInfo;
+        state = QuestState.REQUIREMENTS_NOT_MET;
+        currentQuestStepIndex = 0;
+        questStepStates = new QuestStepState[info.questStepPrefabs.Length];
         for (int i = 0; i < questStepStates.Length; i++)
         {
             questStepStates[i] = new QuestStepState();
@@ -26,19 +26,19 @@ public Quest(QuestInfoSO questInfo)
 
     public Quest(QuestInfoSO questInfo, QuestState questState, int currentQuestStepIndex, QuestStepState[] questStepStates)
     {
-        this.info = questInfo;
-        this.state = questState;
+        info = questInfo;
+        state = questState;
         this.currentQuestStepIndex = currentQuestStepIndex;
         this.questStepStates = questStepStates;
 
         // if the quest step states and prefabs are different lengths,
         // something has changed during development and the saved data is out of sync.
-        if (this.questStepStates.Length != this.info.questStepPrefabs.Length)
+        if (this.questStepStates.Length != info.questStepPrefabs.Length)
         {
             Debug.LogWarning("Quest Step Prefabs and Quest Step States are "
                 + "of different lengths. This indicates something changed "
                 + "with the QuestInfo and the saved data is now out of sync. "
-                + "Reset your data - as this might cause issues. QuestId: " + this.info.id);
+                + "Reset your data - as this might cause issues. QuestId: " + info.id);
         }
     }
 
@@ -57,7 +57,7 @@ public Quest(QuestInfoSO questInfo)
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
         if (questStepPrefab != null)
         {
-            QuestStep questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform)
+            QuestStep questStep = Object.Instantiate(questStepPrefab, parentTransform)
                 .GetComponent<QuestStep>();
             questStep.InitializeQuestStep(info.id, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state);
         }
