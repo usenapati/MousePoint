@@ -11,9 +11,17 @@ namespace Quest_System
         [SerializeField] private bool loadQuestState = true;
         
         private Dictionary<string, Quest> _questMap;
+        
+        public static QuestManager instance { get; private set; }
 
         private void Awake()
         {
+            if (instance != null)
+            {
+                Debug.LogError("Found more than one Game Events Manager in the scene.");
+            }
+
+            instance = this;
             _questMap = CreateQuestMap();
         }
 
@@ -144,7 +152,7 @@ namespace Quest_System
             return idToQuestMap;
         }
 
-        private Quest GetQuestById(string id)
+        public Quest GetQuestById(string id)
         {
             Quest quest = _questMap[id];
             if (quest == null)
@@ -175,7 +183,7 @@ namespace Quest_System
                 // instead, use an actual Save & Load system and write to a file, the cloud, etc..
                 PlayerPrefs.SetString(quest.info.id, serializedData);
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
                 Debug.LogError("Failed to save quest with id " + quest.info.id + ": " + e);
             }
@@ -201,7 +209,7 @@ namespace Quest_System
             }
             catch (Exception e)
             {
-                Debug.LogError("Failed to load quest with id " + quest.info.id + ": " + e);
+                if (quest != null) Debug.LogError("Failed to load quest with id " + quest.info.id + ": " + e);
             }
             return quest;
         }
