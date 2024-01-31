@@ -22,7 +22,8 @@ namespace Dialogue
         private const string PORTRAIT_TAG = "portrait";
 
         private const string LAYOUT_TAG = "layout";
-
+        [SerializeField] private Animator tagAnimator;
+        [SerializeField] private Animator layoutAnimator;
         //Tags
         [Header("Dialogue UI")] [SerializeField]
         private TextMeshProUGUI displayNameText;
@@ -75,6 +76,7 @@ namespace Dialogue
         {
             _dialogueIsPlaying = false;
             dialoguePanel.SetActive(false);
+            layoutAnimator = dialoguePanel.GetComponent<Animator>();
         }
 
         //Choices
@@ -163,10 +165,12 @@ namespace Dialogue
                         //Debug.Log("speaker=" + tagValue);
                         break;
                     case PORTRAIT_TAG:
-                        Debug.Log("portrait=" + tagValue);
+                    tagAnimator.Play(tagValue);
+                        //Debug.Log("portrait=" + tagValue);
                         break;
                     case LAYOUT_TAG:
-                        Debug.Log("layout=" + tagValue);
+                        layoutAnimator.Play(tagValue);
+                        //Debug.Log("layout=" + tagValue);
                         break;
                     default:
                         Debug.LogWarning("Tag came in but is not currently being handled:" + tag);
