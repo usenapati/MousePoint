@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/UIandBuildout.unity
-    guid: dacec6c76ff30a044a2a9e66e0a2c78c
+    path: Assets/Scenes/BetaScenes/MainMenu.unity
+    guid: 3bcdf1f06fa0b4fc989d90ba561f33d2
+  - enabled: 1
+    path: Assets/Scenes/BetaScenes/BoatScene.unity
+    guid: 8e417958b60a3422e98fdc9457a3a2f8
+  - enabled: 1
+    path: Assets/Scenes/BetaScenes/TottenTownBeta.unity
+    guid: 7c97520c76b509449afef856aede3b8b
+  - enabled: 1
+    path: Assets/Scenes/BetaScenes/InsideLodgeBeta.unity
+    guid: 30bcb5da1ff941d469ddf0be64a30567
   m_configObjects: {}
