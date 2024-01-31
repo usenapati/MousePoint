@@ -2931,5 +2931,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7ffa86b420bc75a429bb18d1b69a0b0d,
         type: 3}
+    - target: {fileID: 9092151878447352667, guid: e892d27a240ece04eaa9aca7585e3d79,
+        type: 3}
+      propertyPath: quests.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092151878447352667, guid: e892d27a240ece04eaa9aca7585e3d79,
+        type: 3}
+      propertyPath: dialogues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092151878447352667, guid: e892d27a240ece04eaa9aca7585e3d79,
+        type: 3}
+      propertyPath: quests.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 75a244a4c104fae4fa4c4be901b5e25f,
+        type: 2}
+    - target: {fileID: 9092151878447352667, guid: e892d27a240ece04eaa9aca7585e3d79,
+        type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: 
+      objectReference: {fileID: 4900000, guid: 7c2c2cd3316a18845909ae8f9f62a74a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e892d27a240ece04eaa9aca7585e3d79, type: 3}
