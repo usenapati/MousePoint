@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3063210129103426558}
   - component: {fileID: 3534121017163780178}
   - component: {fileID: 5080226256220037343}
+  - component: {fileID: 9092151878447352667}
   m_Layer: 0
   m_Name: TriggerZone
   m_TagString: Untagged
@@ -77,6 +78,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 7
   m_Center: {x: 0, y: -1.85, z: 0}
+--- !u!114 &9092151878447352667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063210129103426556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d22abde03b5fd6a4b97cc189fda898ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues: []
+  quests: []
 --- !u!1 &3063210130480086112
 GameObject:
   m_ObjectHideFlags: 0
