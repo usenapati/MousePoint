@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &110184431 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8065845994738708581, guid: 55609c775a3ec3c4fa51b186b5b053aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1676678467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &250323005 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 8259154383352440285, guid: 419e70992c04247468eb86a17fc2f6b3,
@@ -1650,3 +1662,77 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf783f8b415d5144b3c42d5e1c99ce5, type: 3}
+--- !u!1001 &7054674603291241339
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7054674602998427074, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054674602998427074, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054674602998427074, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09944999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054674602998427074, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.4839025
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054674602998427074, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054674602998427074, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054674602998427074, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054674602998427074, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054674602998427074, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054674602998427074, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054674602998427074, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054674602998427075, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: fadeOverlay
+      value: 
+      objectReference: {fileID: 110184431}
+    - target: {fileID: 7054674602998427084, guid: c8081fd8eceaa6844a23de55c97d4d21,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneTransitionTrigger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c8081fd8eceaa6844a23de55c97d4d21, type: 3}
