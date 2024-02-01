@@ -55,6 +55,7 @@ namespace Dialogue
             if (dialogueText != null)
             {
                 inkJSON = dialogueText;
+                _hasStartedDialogue = false;
             }
         }
     }

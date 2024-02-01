@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5242dc65bcff13e49babef412a4f4235, type: 3}
   m_Name: EnemyAttackState
   m_EditorClassIdentifier: 
-  enemyAttackDamage: 3
   enemyAttackCooldown: 3
   attackDatas:
-  - {fileID: 11400000, guid: 491ebafe13899be4cb9ac679269f2f34, type: 2}
+  - {fileID: 11400000, guid: 94eb9c696dc986b4ba6d2b08fed9f195, type: 2}
