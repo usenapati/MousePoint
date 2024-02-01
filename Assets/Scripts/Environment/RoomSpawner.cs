@@ -1,5 +1,7 @@
+using System;
+using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Debug = System.Diagnostics.Debug;
 using Random = UnityEngine.Random;
 
 namespace Environment
@@ -55,17 +57,22 @@ namespace Environment
          
       }
 
-      private void OnTriggerEnter(Collider other)
+      private void OnTriggerEnter([NotNull] Collider other)
       {
-         if (other.CompareTag("RoomSpawner"))
+         if (!other.CompareTag("RoomSpawner")) return;
+         try
          {
-            if (spawned == false && other.GetComponent<RoomSpawner>().spawned == false)
+            if (other != null && spawned == false && other.GetComponent<RoomSpawner>().spawned == false)
             {
                Instantiate(_roomTemplates.closedRoom, transform.position, Quaternion.identity);
                Destroy(gameObject);
             }
-            spawned = true;
          }
+         catch (Exception e)
+         {
+            Debug.WriteLine(e);
+         }
+         spawned = true;
       }
    }
    
