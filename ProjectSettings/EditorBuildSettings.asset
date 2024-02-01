@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/BetaScenes/BoatScene.unity
     guid: 8e417958b60a3422e98fdc9457a3a2f8
   - enabled: 1
-    path: Assets/Scenes/BetaScenes/TottenTownBeta.unity
-    guid: 7c97520c76b509449afef856aede3b8b
-  - enabled: 1
     path: Assets/Scenes/BetaScenes/InsideLodgeBeta.unity
     guid: 30bcb5da1ff941d469ddf0be64a30567
+  - enabled: 1
+    path: Assets/Scenes/BetaScenes/TottenTownBeta.unity
+    guid: f8250244adda77a46995035974fab62e
+  - enabled: 1
+    path: Assets/Scenes/BetaScenes/CombatZoneBeta.unity
+    guid: e448091ac015532429e0b86640d566f6
   m_configObjects: {}
