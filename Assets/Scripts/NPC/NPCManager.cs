@@ -23,6 +23,7 @@ namespace NPC
             // Get Dialogue Trigger and Quest Point Components (Need to be in same game object)
             _dialogueTrigger = GetComponent<DialogueTrigger>();
             _questPoint = GetComponent<QuestPoint>();
+            _dialogueTrigger.SetDialogueText(dialogues[_currentDialogueIndex]);
         }
 
         private void OnEnable()
@@ -44,7 +45,7 @@ namespace NPC
         private void ProgressDialogueAfterQuest(string id)
         {
             // Increment dialogueIndex once event has happened (Finished Quest or other Event is called)
-            if (QuestManager.instance.GetQuestById(id).state == QuestState.Finished)
+            if (QuestManager.instance.GetQuestById(id).state == QuestState.CanFinish)
             {
                 _currentDialogueIndex++;
                 UpdateDialogueTrigger();
