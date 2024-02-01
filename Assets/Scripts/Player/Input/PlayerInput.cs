@@ -34,7 +34,7 @@ namespace Player.Input
             DisableAllInput();
         }
 
-        public void DisableAllInput()
+        private void DisableAllInput()
         {
             _playerActions.Player.Disable();
             _playerActions.Core.Disable();
@@ -42,7 +42,7 @@ namespace Player.Input
             GameEventsManager.instance.playerEvents.DisablePlayerMovement();
         }
 
-        public void EnableGameplayInput()
+        private void EnableGameplayInput()
         {
             if (_playerActions.Player.enabled) return;
 
