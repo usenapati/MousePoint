@@ -1,6 +1,7 @@
 using System;
 using Core.Managers;
 using Quest_System;
+using UnityEngine;
 
 namespace Resources.Quests.DefeatEnemiesQuest
 {
@@ -23,6 +24,7 @@ namespace Resources.Quests.DefeatEnemiesQuest
         
         private void EnemyDefeated()
         {
+            Debug.Log("Enemy Defeated");
             _enemiesDefeated++;
             if (_enemiesDefeated >= _enemiesToDefeat)
             {

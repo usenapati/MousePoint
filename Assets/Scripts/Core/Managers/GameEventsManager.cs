@@ -16,9 +16,11 @@ namespace Core.Managers
 
         private void Awake()
         {
+            DontDestroyOnLoad(gameObject);
             if (instance != null)
             {
                 Debug.LogError("Found more than one Game Events Manager in the scene.");
+                Destroy(gameObject);
             }
 
             instance = this;

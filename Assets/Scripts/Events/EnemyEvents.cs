@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Events
 {
@@ -8,6 +9,7 @@ namespace Events
 
         public void EnemyDefeated()
         {
+            
             OnEnemyDefeated?.Invoke();
         }
     }

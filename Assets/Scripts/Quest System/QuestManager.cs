@@ -16,14 +16,18 @@ namespace Quest_System
 
         private void Awake()
         {
+            DontDestroyOnLoad(gameObject);
             if (instance != null)
             {
-                Debug.LogError("Found more than one Game Events Manager in the scene.");
+                Debug.LogError("Found more than one Quest Manager in the scene.");
+                Destroy(gameObject);
             }
 
             instance = this;
             _questMap = CreateQuestMap();
+            
         }
+        
 
         private void OnEnable()
         {
@@ -45,6 +49,7 @@ namespace Quest_System
 
         private void Start()
         {
+            
             foreach (Quest quest in _questMap.Values)
             {
                 // initialize any loaded quest steps

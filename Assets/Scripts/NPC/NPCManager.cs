@@ -55,7 +55,9 @@ namespace NPC
         private void AddQuest(string dialogueName)
         {
             // Check currentDialogueIndex and add quest based on index
-            var completedDialogue = quests.First(i => i.dialogue.name == dialogueName);
+            if (quests.Length == 0)
+                return;
+            var completedDialogue = quests.FirstOrDefault(i => i.dialogue.name == dialogueName);
             if (completedDialogue != null)
             {
                 _currentQuestID = completedDialogue.questInfoSo.id;

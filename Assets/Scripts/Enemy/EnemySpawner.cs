@@ -29,7 +29,7 @@ namespace Enemy
         private IEnumerator SpawnEnemy()
         {
             yield return new WaitForSeconds(_spawnDelay);
-            Instantiate(enemyPrefab);
+            Instantiate(enemyPrefab, transform);
         }
     }
 }

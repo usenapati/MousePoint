@@ -1,3 +1,4 @@
+using System;
 using Core.Managers;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace Quest_System
         private string questId;
         private int stepIndex;
 
-        public void InitializeQuestStep(string questId, int stepIndex, string questStepState)
+      public void InitializeQuestStep(string questId, int stepIndex, string questStepState)
         {
             this.questId = questId;
             this.stepIndex = stepIndex;
