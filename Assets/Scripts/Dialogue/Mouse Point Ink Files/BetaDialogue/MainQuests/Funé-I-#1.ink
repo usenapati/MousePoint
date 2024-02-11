@@ -22,7 +22,7 @@ Seems like ol’ Funé should teach you some manners.#speaker: Funé #portrait: 
 -> Dovetail
 
 ===Dovetail===
- Alright, well we’ll hold off on our challenge for now. You aren’t ready to face the mighty Funé anyhow. But if not to challenge me, what does bring you here little mouseling? #speaker: Funé #portrait: _funé #layout:right
+ Regardless, we’ll hold off on our challenge for now. You aren’t ready to face the mighty Funé anyhow. But if not to challenge me, what does bring you here little mouseling? #speaker: Funé #portrait: _funé #layout:right
 
 Nezumi sent me. #speaker: Darwin #portrait: _darwin #layout: left
 
