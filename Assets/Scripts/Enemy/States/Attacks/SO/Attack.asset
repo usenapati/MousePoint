@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.75, y: 0.5, z: 1.5}
   boundsOffset: {x: 1.12, y: 0, z: 0}
-  damage: 17
+  damage: 1
   targetMask:
     serializedVersion: 2
     m_Bits: 1

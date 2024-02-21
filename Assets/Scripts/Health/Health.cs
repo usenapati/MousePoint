@@ -44,7 +44,7 @@ namespace Health
             OnTakeDamage?.Invoke(0, _health);
         }
     
-        public bool Damage(float amount)
+        public virtual bool Damage(float amount)
         {
             if (isDead || isImmune) { return false; }
     
@@ -75,6 +75,16 @@ namespace Health
             isImmune = true;
             yield return waitingTime;
             isImmune = false;
+        }
+
+        public float GetMaxHealth()
+        {
+            return maxHealth;
+        }
+        
+        public float GetCurrentHealth()
+        {
+            return _health;
         }
     }
 }

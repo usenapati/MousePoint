@@ -1,3 +1,4 @@
+using System;
 using Core.Managers;
 
 namespace Health
@@ -5,6 +6,12 @@ namespace Health
     
     public class PlayerHealth : Health
     {
+        public override bool Damage(float amount)
+        {
+            GameEventsManager.instance.playerEvents.PlayerDamaged();
+            return base.Damage(amount);
+        }
+
         // Player Input
         // Player State Machine - Sprites and Animation
         // Scene Manager/Respawn Manager - Respawn player in same scene or different scene
