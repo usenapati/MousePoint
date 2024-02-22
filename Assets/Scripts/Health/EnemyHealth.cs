@@ -8,7 +8,7 @@ namespace Health
         {
             GameEventsManager.instance.enemyEvents.EnemyDefeated();
             base.Die();
-            Destroy(transform.root.gameObject);
+            Destroy(transform.gameObject);
         }
     }
 }

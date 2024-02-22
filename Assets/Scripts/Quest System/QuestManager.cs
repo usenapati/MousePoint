@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Core.Managers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Quest_System
 {
@@ -11,6 +13,8 @@ namespace Quest_System
         [SerializeField] private bool loadQuestState = true;
         
         private Dictionary<string, Quest> _questMap;
+        
+        public List<QuestStep> _activeQuestSteps;
         
         public static QuestManager instance { get; private set; }
 
@@ -25,12 +29,13 @@ namespace Quest_System
 
             instance = this;
             _questMap = CreateQuestMap();
-            
+            _activeQuestSteps = new List<QuestStep>();
         }
         
 
         private void OnEnable()
         {
+            SceneManager.sceneLoaded += OnSceneLoaded;
             GameEventsManager.instance.questEvents.OnStartQuest += StartQuest;
             GameEventsManager.instance.questEvents.OnAdvanceQuest += AdvanceQuest;
             GameEventsManager.instance.questEvents.OnFinishQuest += FinishQuest;
@@ -40,6 +45,7 @@ namespace Quest_System
 
         private void OnDisable()
         {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
             GameEventsManager.instance.questEvents.OnStartQuest -= StartQuest;
             GameEventsManager.instance.questEvents.OnAdvanceQuest -= AdvanceQuest;
             GameEventsManager.instance.questEvents.OnFinishQuest -= FinishQuest;
@@ -60,7 +66,18 @@ namespace Quest_System
                 // broadcast the initial state of all quests on startup
                 GameEventsManager.instance.questEvents.QuestStateChange(quest);
             }
+            _activeQuestSteps = GetComponentsInChildren<QuestStep>().ToList();
         }
+
+        public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            foreach (var questStep in GetComponentsInChildren<QuestStep>())
+            {
+                questStep.enabled = false;
+                questStep.enabled = true;
+            }
+        }
+        
 
         private void ChangeQuestState(string id, QuestState state)
         {
@@ -183,7 +200,7 @@ namespace Quest_System
                 QuestData questData = quest.GetQuestData();
                 // serialize using JsonUtility, but use whatever you want here (like JSON.NET)
                 string serializedData = JsonUtility.ToJson(questData);
-                // saving to PlayerPrefs is just a quick example for this tutorial video,
+                // saving to PlayerPrefs is just a quick example,
                 // you probably don't want to save this info there long-term.
                 // instead, use an actual Save & Load system and write to a file, the cloud, etc..
                 PlayerPrefs.SetString(quest.info.id, serializedData);

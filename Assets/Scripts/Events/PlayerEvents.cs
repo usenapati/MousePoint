@@ -6,6 +6,7 @@ namespace Events
     {
         public event Action OnPlayerDeath;
         public event Action OnPlayerSpawn;
+        public event Action OnPlayerDamaged;
         public event Action OnEnablePlayerMovement;
         public event Action OnDisablePlayerMovement;
 
@@ -17,6 +18,11 @@ namespace Events
         public void PlayerSpawn()
         {
             OnPlayerSpawn?.Invoke();
+        }
+
+        public void PlayerDamaged()
+        {
+            OnPlayerDamaged?.Invoke();
         }
 
         public void EnablePlayerMovement()

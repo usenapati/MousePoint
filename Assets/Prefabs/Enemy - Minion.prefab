@@ -66,7 +66,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - {fileID: 11400000, guid: 3ea102afa58473845aadc65c09610d7d, type: 2}
   - {fileID: 11400000, guid: 615bed56a78e00e47ac0088d601e79a9, type: 2}
   - {fileID: 11400000, guid: 592e657f53d472240964c2264a88e5cb, type: 2}
   debug: 0
