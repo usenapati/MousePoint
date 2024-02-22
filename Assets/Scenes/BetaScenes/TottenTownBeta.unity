@@ -10350,6 +10350,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7a8e922cf433d524bb801b67f4056139, type: 2}
+    - target: {fileID: 7311837518781403582, guid: 9eafa4fb520a3c542ada8827b7721705,
+        type: 3}
+      propertyPath: fadeOverlay
+      value: 
+      objectReference: {fileID: 421855686}
+    - target: {fileID: 7311837518781403582, guid: 9eafa4fb520a3c542ada8827b7721705,
+        type: 3}
+      propertyPath: hitSoundSource
+      value: 
+      objectReference: {fileID: 2143246115}
     - target: {fileID: 7341042264678549761, guid: 9eafa4fb520a3c542ada8827b7721705,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14688,6 +14698,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: QuestIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 814835947095061793, guid: cdfa1c08c16483d43ba03bbe00254cc7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3031365403958621591, guid: cdfa1c08c16483d43ba03bbe00254cc7,
         type: 3}
@@ -45941,6 +45956,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1488923301}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &2143246115 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8018754296000284209, guid: 9eafa4fb520a3c542ada8827b7721705,
+    type: 3}
+  m_PrefabInstance: {fileID: 461334763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2143892865 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2158433223181258238, guid: 293959353918ed0498ed27aa80fb228d,
@@ -46319,6 +46340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadQuestState: 1
+  _activeQuestSteps: []
 --- !u!4 &8650330897327269831
 Transform:
   m_ObjectHideFlags: 0

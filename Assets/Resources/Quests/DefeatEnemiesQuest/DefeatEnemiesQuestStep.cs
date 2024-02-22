@@ -12,6 +12,7 @@ namespace Resources.Quests.DefeatEnemiesQuest
 
         private int _enemiesToDefeat = 3;
 
+
         private void OnEnable()
         {
             GameEventsManager.instance.enemyEvents.OnEnemyDefeated += EnemyDefeated;

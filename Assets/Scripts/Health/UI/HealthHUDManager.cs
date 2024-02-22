@@ -14,12 +14,12 @@ namespace Health.UI
 
         private void OnEnable()
         {
-            GameEventsManager.instance.playerEvents.OnPlayerDamaged += DrawHearts;
+            GameEventsManager.instance.playerEvents.OnPlayerDamaged += UpdateHearts;
         }
 
         private void OnDisable()
         {
-            GameEventsManager.instance.playerEvents.OnPlayerDamaged -= DrawHearts;
+            GameEventsManager.instance.playerEvents.OnPlayerDamaged -= UpdateHearts;
         }
 
         // Start is called before the first frame update
@@ -27,6 +27,7 @@ namespace Health.UI
         {
             _playerHealth = FindObjectOfType<PlayerHealth>();
             DrawHearts();
+            UpdateHearts();
         }
 
         public void DrawHearts()
@@ -38,7 +39,11 @@ namespace Health.UI
             {
                 CreateEmptyHeart();
             }
+            
+        }
 
+        public void UpdateHearts()
+        {
             for (int i = 0; i < hearts.Count; i++)
             {
                 int heartStatusRemainder = (int)Mathf.Clamp(_playerHealth.GetCurrentHealth() - (i * 2), 0, 2);
